@@ -14,8 +14,8 @@ Tasks started, but not completed, since last meeting:
   *N/A
 
 Tasks to be worked on (and by which team members) for the next meeting:
-  *
-  *
+  * Defining Junit tests 
+  * Figuring out what a fractal is in-depth 
 
 Schedule for the next week's set of pair programming meetings:
   *
