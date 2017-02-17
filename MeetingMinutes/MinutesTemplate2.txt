@@ -1,4 +1,4 @@
-Meeting Minutes for _______Febuary 9________:
+Meeting Minutes for _______Febuary 16________:
 
 Meeting Attendance:
   *Cole
@@ -6,17 +6,20 @@ Meeting Attendance:
   *Steve
   *Brian (M)
 Tasks completed since last meeting:
-  *N/A
-  *N/A
+  *We gathered more information on fractals
+  
 
 Tasks started, but not completed, since last meeting:
-  *N/A
+  *N/A 
   *N/A
 
 Tasks to be worked on (and by which team members) for the next meeting:
-  * Defining Junit tests 
-  * Figuring out what a fractal is in-depth 
+  * writing Junit tests (all)
+  **
+  **
+  **
+  **
 
 Schedule for the next week's set of pair programming meetings:
-  * 
-  *
+  * Group DESIGN meeting scheduled for tuesday
+
