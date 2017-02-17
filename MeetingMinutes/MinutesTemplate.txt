@@ -4,6 +4,7 @@ Meeting Attendance:
   *Cole
   *Andrew
   *Steve
+  *Brian
 
 Tasks completed since last meeting:
   *N/A
