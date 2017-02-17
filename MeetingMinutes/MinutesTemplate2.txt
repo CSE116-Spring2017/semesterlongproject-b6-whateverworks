@@ -15,11 +15,29 @@ Tasks started, but not completed, since last meeting:
 
 Tasks to be worked on (and by which team members) for the next meeting:
   * writing Junit tests (all)
-  **
-  **
-  **
-  **
+  
+  who will write what?
+  **Calculates the escape time for a coordinate whose distance from the origin never exceeds the escape distance [4 * 6 points = 24 points]
+IN CHARGE: STEVE
+    Mandelbrot Set: (0.3207031250000001, -0.07109374999999386)
+    Julia Set: (1.0492187499999897, -0.234375)
+    Burning Ship Set: (-1.7443359374999874, -0.017451171875000338)
+    Details for the 4th fractal to be supplied the last week of the phase
+  
+  **Calculates the escape time for a coordinate whose distance after from the origin exceeds the escape distance after a single loop pass [3 * 6 points = 18 points]
+		IN CHARGE BRIAN
+    Mandelbrot Set: (0.5946289062500001, 1.2949218750000122)
+    Julia Set: (1.6933593749999853, 0.9765625)
+    Details for the 4th fractal to be supplied the last week of the phase
+Calculates that none of the pixels in the Burning Ship set have an escape time of 0 or 1 [8 points]
+  **Translate a pixel's row to the associated x-coordinate in the fractal (1 test per fractal) [4 * 5 points = 20 points]
+  
+ in charge: Cole
+  **Translate a pixel's column to the associated y-coordinate in the fractal (1 test per fractal) [4 * 5 points = 20 points]
+  IN CHARGE: ANDREW
+  **    The method called to calculate the fractal returns a 2-d array with 512 rows and 512 columns (1 test per fractal) [4 * 2 points = 8 points] 
+     All classes, methods, and instance variables are commented using Javadoc [2 points]
 
 Schedule for the next week's set of pair programming meetings:
-  * Group DESIGN meeting scheduled for tuesday
+  * Group DESIGN meeting scheduled for tuesday Feb 21
 
