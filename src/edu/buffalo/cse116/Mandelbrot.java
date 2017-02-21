@@ -2,6 +2,8 @@ package edu.buffalo.cse116;
 
 import java.awt.Point;
 
+// Steven LeFebvre
+
 public class Mandelbrot {
 	
 	// Grid to hold escape times
