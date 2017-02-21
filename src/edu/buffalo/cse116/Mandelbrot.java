@@ -1,9 +1,14 @@
 package edu.buffalo.cse116;
 
+import java.awt.Point;
+
 public class Mandelbrot {
 	
+	// Grid to hold escape times
 	int[][] _grid = new int[512][512];
 
+	
+	// Populates array using escapeTime method
 	public Mandelbrot(){
 		
 		for (int row = 0; row <= 512; row++){
@@ -14,12 +19,17 @@ public class Mandelbrot {
 		}
 	}
 		
-		
+	
+	// Calculates escape time
 	public int escapeTime(Coord calc){
 		
-		double xCalc = calc.x();
+		double currentX = calc.x();
 		
-		double yCalc = calc.y();
+		double currentY = calc.y();
+		
+		double xCalc = currentX;
+		
+		double yCalc = currentY;
 		
 		double dist = Math.sqrt(Math.pow((xCalc - 0), 2) + Math.pow(yCalc - 0, 2));
 		
@@ -27,9 +37,9 @@ public class Mandelbrot {
 		
 		while(dist <= 2 && passes < 255){
 			
-			xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + xCalc;
+			xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + currentX;
 			
-			yCalc = 2 * xCalc * yCalc + yCalc;
+			yCalc = 2 * xCalc * yCalc + currentY;
 			
 			passes = passes + 1;
 			
@@ -39,9 +49,9 @@ public class Mandelbrot {
 		return passes;
 	}
 	
+	// returns escape time at a specific point in our grid
+	public int gridEscapeTime(Point p){
 	
-	public int gridEscapeTime(int row, int column){
-		
-		return _grid[row][column];
+		return _grid[p.x][p.y];
 	}
 }
