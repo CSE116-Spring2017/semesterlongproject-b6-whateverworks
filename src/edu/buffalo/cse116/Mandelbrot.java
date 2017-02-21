@@ -20,7 +20,7 @@ public class Mandelbrot {
 	}
 		
 	
-	// Calculates escape time
+	// Calculates escape time which is the number of passes
 	public int escapeTime(Coord calc){
 		
 		double currentX = calc.x();
