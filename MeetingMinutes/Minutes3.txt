@@ -1,0 +1,34 @@
+Meeting Minutes for _______Febuary 16________:
+
+Meeting Attendance:
+  *Cole
+  *Andrew (M)
+  *Steve
+  *Brian 
+Tasks completed since last meeting:
+  *We gathered more information on fractals
+  
+
+Tasks started, but not completed, since last meeting:
+  *Finishing Junit test
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  * writing Junit tests (Cole and Andrew)
+  * writing fractal classes
+  
+  who will write what?
+  Mandelbrot: 
+  *Steve
+  
+  Julia:
+  *Andrew 
+  
+  Burning Ship:
+  *Brian
+  
+  Multibrot:
+  *Cole
+
+Schedule for the next week's set of pair programming meetings:
+  * Meet back up on Thursday's recitation and finalize part one
+
