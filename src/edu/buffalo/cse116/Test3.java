@@ -14,7 +14,7 @@ public class Test3 {
 		Coord c = new Coord (0.3207031250000001, -0.07109374999999386);
 		assertEquals(254, distLessEscapeDistM.escapeTime(c));
 	}
-	
+	/*
 	@Test
 	public void Juliatest() {
 		Julia distLessEscapeDistJ = new Julia();
@@ -35,5 +35,6 @@ public class Test3 {
 		Coord c = new Coord (0.5859375, 0.24375000000000108);
 		assertEquals(254, distLessEscapeDistMb.escapeTime(c));
 	}
+	*/
 
 }
