@@ -15,7 +15,7 @@ public class Mandelbrot {
 		
 		for (int row = 0; row <= 512; row++){
 			for (int column = 0; column <= 512; column++){
-				Coord c = new Coord((-2.15 + (row * .00431640625)), (-1.3 + (column * -0.00010742187)));
+				Coord c = new Coord((-2.15 + (row * .00431640625)), (-1.3 + (column * 0.005078125)));
 				_grid[row][column] = escapeTime(c);
 			}
 		}
