@@ -10,7 +10,7 @@ public class BurningShip {
 
 		for (int row = 0; row <= 512; row++){
 			for (int column = 0; column <= 512; column++){
-				Coord c = new Coord((-1.8 + (row * 0.001953125)), (-1.7 + (column * .005078125)));
+				Coord c = new Coord((-1.8 + (row * 0.001953125)), ( -0.08 + (column * -0.00010742187)));
 				// row side is domain/512 column side is range/512
 				_grid[row][column] = escapeTime(c);
 			}		
