@@ -19,7 +19,7 @@ public class Mandelbrot {
 	public int[][] calcFrac(){
 		for (int row = 0; row < 512; row++){
 			for (int column = 0; column < 512; column++){
-				Coord c = new Coord((-2.15 + (row * .00431640625)), (-1.3 + (column * 0.005078125)));
+				Coord c = new Coord((-2.15 + (row * 0.00537109375)), (-1.3 + (column * 0.005078125)));
 				_grid[row][column] = escapeTime(c);
 			}
 		}
@@ -64,7 +64,7 @@ public class Mandelbrot {
 	
 	// returns x coordinate associated with pixel
 	public double getXCoordinate(int row){
-		return -2.15 + (row * .00431640625);
+		return -2.15 + (row * 0.00537109375);
 	}
 	
 	// returns y coordinate associated with pixel
