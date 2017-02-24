@@ -1,0 +1,24 @@
+Meeting Minutes for _______Febuary 23________:
+
+Meeting Attendance:
+  *Cole
+  *Andrew 
+  *Steve
+  *Brian (M)
+Tasks completed since last meeting:
+  *we finished the bulk of the tests and fractal classes
+  
+
+Tasks started, but not completed, since last meeting:
+  *Extra tests
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  * debugging two tests 
+  * writing fractal array tests ( Brian)
+  * Writing tests for translating pixels ( Andrew Cole )
+  * Writing methods used for translation tests (Steve) (Done)
+  
+
+
+Schedule for the next week's set of pair programming meetings:
+  * Meet Friday at Davis with TA to finish debugging
