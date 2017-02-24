@@ -23,7 +23,7 @@ public class MainProtoTest {
 	public void Mandelbrottest2() {
 		Mandelbrot distLessEscapeDistM = new Mandelbrot();
 		Coord p = new Coord (0.5946289062500001, 1.2949218750000122);
-		assertEquals(1, distLessEscapeDistM.escapeDist(p));
+		assertEquals(1, distLessEscapeDistM.escapeTime(p));
 	}
 	/**
 	 * Test used on the Julia Fractal to test a point that exceeds the escape distance in one iteration of the loop.

@@ -26,9 +26,9 @@ public class Julia {
 		
 		while(dist <= 2 && passes < 255){
 			
-			xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + xCalc;
+			xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + -0.72689;
 			
-			yCalc = 2 * xCalc * yCalc + yCalc;
+			yCalc = 2 * xCalc * yCalc + .188887;
 			
 			passes = passes + 1;
 			

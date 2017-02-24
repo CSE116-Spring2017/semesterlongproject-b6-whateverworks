@@ -37,3 +37,4 @@ public class Multibrot {
 		}
 		return row;
 	}
+}
