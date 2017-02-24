@@ -5,8 +5,8 @@ public class Multibrot {
 	int[][] _grid = new int[512][512];
 
 	public Multibrot(){
-		for (int row = 0; row <= 512; row++){
-			for (int column = 0; column <= 512; column++){
+		for (int row = 0; row < 512; row++){
+			for (int column = 0; column < 512; column++){
 				Coord c = new Coord((-1 + (row * .00390625)), (-1.3 + (column * .00507812)));
 				_grid[row][column] = escapeTime(c);
 				}

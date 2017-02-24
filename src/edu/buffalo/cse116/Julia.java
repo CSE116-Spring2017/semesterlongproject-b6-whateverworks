@@ -6,8 +6,8 @@ public class Julia {
 
 	public Julia(){
 		
-		for (int row = 0; row <= 512; row++){
-			for (int column = 0; column <= 512; column++){
+		for (int row = 0; row < 512; row++){
+			for (int column = 0; column < 512; column++){
 				Coord c = new Coord((-1.7 + (row * 0.006640625)), (-1.0 + (column * 0.00390625)));
 				_grid[row][column] = escapeTime(c);
 			}
