@@ -6,12 +6,17 @@ public class Julia {
 
 	public Julia(){
 		
+	}
+	
+	//Calculates fractal and returns array
+	public int[][] calcFrac(){
 		for (int row = 0; row < 512; row++){
 			for (int column = 0; column < 512; column++){
 				Coord c = new Coord((-1.7 + (row * 0.006640625)), (-1.0 + (column * 0.00390625)));
 				_grid[row][column] = escapeTime(c);
 			}
 		}
+		return _grid;
 	}
 		
 	public int escapeTime(Coord calc){
@@ -44,17 +49,14 @@ public class Julia {
 		return _grid[row][column];
 	}
 
-	
-	public int col(Coord y) { 	//allows us to plug in a coord to test
-		int column = 0; 		//set up a variable that can return our col
-		for (int row = 0; row <= 512; row++){	//iterates through our array 
-			for (int col = 0; column <= 512; column++){
-				if(escapeTime(y) == _grid[row][col]){	//the coord we want to test goes through Steve's method and gets  
-					column = col;						//value of escapetime that is originally stored in our array
-				}										//the if statement matches up that tested value with 
-			}											//the value already in the grid and returns the column
-		}
-		return column;
+	// returns x coordinate associated with pixel
+	public double getXCoordinate(int row){
+		return -1.7 + (row * 0.006640625);
+	}
+			
+	// returns y coordinate associated with pixel
+	public double getYCoordinate(int column){
+		return -1 + (column * 0.00390625);
 	}
 		
 }

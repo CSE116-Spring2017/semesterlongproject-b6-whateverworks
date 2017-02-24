@@ -13,12 +13,17 @@ public class Mandelbrot {
 	// Populates array using escapeTime method
 	public Mandelbrot(){
 		
+	}
+	
+	//Calculates fractal and returns array
+	public int[][] calcFrac(){
 		for (int row = 0; row < 512; row++){
 			for (int column = 0; column < 512; column++){
 				Coord c = new Coord((-2.15 + (row * .00431640625)), (-1.3 + (column * 0.005078125)));
 				_grid[row][column] = escapeTime(c);
 			}
 		}
+		return _grid;
 	}
 		
 	
@@ -56,4 +61,15 @@ public class Mandelbrot {
 	
 		return _grid[p.x][p.y];
 	}
+	
+	// returns x coordinate associated with pixel
+	public double getXCoordinate(int row){
+		return -2.15 + (row * .00431640625);
+	}
+	
+	// returns y coordinate associated with pixel
+	public double getYCoordinate(int column){
+		return -1.3 + (column * 0.005078125);
+	}
+	
 }
