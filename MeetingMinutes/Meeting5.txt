@@ -1,0 +1,20 @@
+Meeting Minutes for _______March 2________:
+
+Meeting Attendance:
+  *Andrew 
+  *Steve (M)
+  *Brian
+Tasks completed since last meeting:
+  *Submitted phase one
+  
+
+Tasks started, but not completed, since last meeting:
+  *None
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  *None because of absent group member
+  
+
+
+Schedule for the next week's set of pair programming meetings:
+  * Meet Thursday @ 3 to make a more detailed plan for phase two

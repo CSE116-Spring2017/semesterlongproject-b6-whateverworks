@@ -31,9 +31,11 @@ public class Julia {
 		
 		while(dist <= 2 && passes < 255){
 			
+			double previousXCalc = xCalc;
+			
 			xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + -0.72689;
 			
-			yCalc = 2 * xCalc * yCalc + .188887;
+			yCalc = 2 * previousXCalc * yCalc + .188887;
 			
 			passes = passes + 1;
 			
@@ -44,10 +46,11 @@ public class Julia {
 	}
 	
 	
-	public int gridEscapeTime(int row, int column){
-		
-		return _grid[row][column];
-	}
+	// returns escape time at a specific point in our grid
+	/*public int gridEscapeTime(Point p){
+			
+		return _grid[p.x][p.y];
+	}*/
 
 	// returns x coordinate associated with pixel
 	public double getXCoordinate(int row){

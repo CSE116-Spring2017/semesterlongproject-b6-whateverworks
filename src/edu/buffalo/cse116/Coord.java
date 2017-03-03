@@ -10,10 +10,6 @@ public class Coord {
 		_y = y;
 	}
 	
-	public void setCoord(double x, double y){
-		_x = x;
-		_y = y;
-	}
 	
 	public double x(){
 		return _x;

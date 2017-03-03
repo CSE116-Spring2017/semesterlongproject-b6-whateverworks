@@ -1,7 +1,5 @@
 package edu.buffalo.cse116;
 
-import java.awt.Point;
-
 public class BurningShip {
 	
 	int[][] _grid = new int[512][512];
@@ -38,12 +36,13 @@ public class BurningShip {
 		int passes = 0;
 		
 		
-		
 		while(dist <= 2 && passes < 255){
+			
+			double previousXCalc = xCalc;
 			
 			xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + currentX;
 			
-			yCalc = Math.abs(2 * xCalc * yCalc) + currentY;
+			yCalc = Math.abs(2 * previousXCalc * yCalc) + currentY;
 			
 			passes = passes + 1;
 			
@@ -55,10 +54,10 @@ public class BurningShip {
 	}
 		
 	// returns escape time at a specific point in our grid
-	public int gridEscapeTime(Point p){
+	/*public int gridEscapeTime(Point p){
 		
 		return _grid[p.x][p.y];
-	}
+	}*/
 	
 	// returns x coordinate associated with pixel
 	public double getXCoordinate(int row){

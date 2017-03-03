@@ -1,7 +1,5 @@
 package edu.buffalo.cse116;
 
-import java.awt.Point;
-
 // Steven LeFebvre
 
 public class Mandelbrot {
@@ -44,9 +42,11 @@ public class Mandelbrot {
 		
 		while(dist <= 2 && passes < 255){
 			
+			double previousXCalc = xCalc;
+			
 			xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + currentX;
 			
-			yCalc = 2 * xCalc * yCalc + currentY;
+			yCalc = 2 * previousXCalc * yCalc + currentY;
 			
 			passes = passes + 1;
 			
@@ -57,10 +57,10 @@ public class Mandelbrot {
 	}
 	
 	// returns escape time at a specific point in our grid
-	public int gridEscapeTime(Point p){
-	
-		return _grid[p.x][p.y];
-	}
+		/*public int gridEscapeTime(Point p){
+			
+			return _grid[p.x][p.y];
+		}*/
 	
 	// returns x coordinate associated with pixel
 	public double getXCoordinate(int row){

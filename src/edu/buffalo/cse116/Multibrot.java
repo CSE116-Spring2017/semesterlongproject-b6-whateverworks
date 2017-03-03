@@ -1,7 +1,5 @@
 package edu.buffalo.cse116;
 
-import java.awt.Point;
-
 public class Multibrot {
 
 	int[][] _grid = new int[512][512];
@@ -21,23 +19,27 @@ public class Multibrot {
 	}
 	
 	public int escapeTime(Coord calc){
+		double currentX = calc.x();
+		double currentY = calc.y();
 		double xCalc = calc.x();
 		double yCalc = calc.y();
 		double dist = Math.sqrt(Math.pow(xCalc - 0, 2) + Math.pow(yCalc - 0, 2));
 		int passes = 0;
 		while (dist <=2 && passes < 255){
-			xCalc = Math.pow(xCalc, 3) - (3 * xCalc * Math.pow(yCalc, 2)) + xCalc;
-			yCalc = (3 * Math.pow(xCalc, 2) * yCalc) - Math.pow(yCalc, 3) + yCalc;
+			double previousXCalc = xCalc;
+			xCalc = Math.pow(xCalc, 3) - (3 * xCalc * Math.pow(yCalc, 2)) + currentX;
+			yCalc = (3 * Math.pow(previousXCalc, 2) * yCalc) - Math.pow(yCalc, 3) + currentY;
 			passes = passes + 1;
 			dist = Math.sqrt(Math.pow(xCalc - 0, 2) + Math.pow(yCalc - 0, 2));
 		}
 		return passes;
 	}
 	
-	public int gridEscapeTime(Point p){
-		
-		return _grid[p.x][p.y];
-	}
+	// returns escape time at a specific point in our grid
+		/*public int gridEscapeTime(Point p){
+			
+			return _grid[p.x][p.y];
+		}*/
 	
 	// returns x coordinate associated with pixel
 	public double getXCoordinate(int row){
@@ -46,6 +48,6 @@ public class Multibrot {
 			
 	// returns y coordinate associated with pixel
 	public double getYCoordinate(int column){
-		return -1.3 + (column * .00507812);
+		return -1.3 + (column * .005078125);
 	}
 }

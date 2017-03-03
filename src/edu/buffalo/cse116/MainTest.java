@@ -5,8 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class MainTest {
+
 	
-	//Test 2 all work
+	//Test 1 all work
 	
 	//Mandelbrot
 	@Test
@@ -88,8 +89,122 @@ public class MainTest {
 	}
 
 	
+	//Test 2 all work
+	
+	//JULIA
+	
+	@Test
+	public void colZeroJulia() {
+		Julia col = new Julia();
+		assertEquals(-1.0, col.getYCoordinate(0), .0000000001);
+	}
 		
-	// Test 3 without burning ship all work
+	@Test
+	public void colLastJulia() {
+		Julia col = new Julia();
+		assertEquals(1.0, col.getYCoordinate(512), .0000000001);
+	}
+	
+	@Test
+	public void colMidJulia() {
+		Julia col = new Julia();
+		assertEquals(-0.00390625, col.getYCoordinate(255), .0000000001);
+	}
+		
+	@Test
+	public void colRandJulia() {
+		Julia col = new Julia();
+		assertEquals(-0.85546875, col.getYCoordinate(37), .0000000001);
+	}
+		
+	//Mandelbrot
+	
+	@Test
+	public void colZeroMandel() {
+		Mandelbrot col = new Mandelbrot();
+		assertEquals(-1.3, col.getYCoordinate(0), .0000000001);
+	}
+		
+	@Test
+	public void colLastMandel() {
+		Mandelbrot col = new Mandelbrot();
+		assertEquals(1.3, col.getYCoordinate(512), .0000000001);
+	}
+		
+	@Test
+	public void colMidMandel() {
+		Mandelbrot col = new Mandelbrot();
+		assertEquals(-0.005078125, col.getYCoordinate(255), .0000000001);
+	}
+		
+	@Test
+	public void colRandMandel() {
+		Mandelbrot col = new Mandelbrot();
+		assertEquals(0.705859375, col.getYCoordinate(395), .0000000001);
+	}
+		
+	//Burning Ship
+		
+	@Test
+	public void colZeroBurning() {
+		BurningShip col = new BurningShip();
+		assertEquals(-.08, col.getYCoordinate(0), .0000000001);
+	}
+		
+	@Test
+	public void colLastBurning() {
+		BurningShip col = new BurningShip();
+		assertEquals(0.025, col.getYCoordinate(512), .0000000001);
+	}
+		
+	@Test
+	public void colMidBurning() {
+		BurningShip col = new BurningShip();
+		assertEquals(-0.027705078125, col.getYCoordinate(255), .0000000001);
+	}
+		
+	@Test
+	public void colRandBurning() {
+		BurningShip col = new BurningShip();
+		assertEquals(-0.02298828125, col.getYCoordinate(278), .0000000001);
+	}
+		
+	//Multibrot
+	
+	@Test
+	public void colZeroMutli() {
+		Multibrot col = new Multibrot();
+		assertEquals(-1.3, col.getYCoordinate(0), .0000000001);
+	}
+		
+	@Test
+	public void colLastMutli() {
+		Multibrot col = new Multibrot();
+		assertEquals(1.3, col.getYCoordinate(512), .0000000001);
+	}
+		
+	@Test
+	public void colMidMutli() {
+		Multibrot col = new Multibrot();
+		assertEquals(-0.005078125, col.getYCoordinate(255), .0000000001);
+	}
+		
+	@Test
+	public void colRandMutli() {
+		Multibrot col = new Multibrot();
+		assertEquals(-0.756640625, col.getYCoordinate(107), .0000000001);
+	}
+	
+	
+		
+	// Test 3 all work
+	
+	@Test
+	public void BurningShiptest() {
+		BurningShip distLessEscapeDistB = new BurningShip();
+		Coord c = new Coord (-1.7443359374999874, -0.017451171875000338);
+		assertEquals(255, distLessEscapeDistB.escapeTime(c));
+	}
 	
 	@Test
 	public void Mandelbrottest() {
@@ -114,7 +229,15 @@ public class MainTest {
 	
 	
 	
-	// Test 4 without Mandelbrot all work
+	// Test 4 all work
+	
+	@Test
+	public void Mandelbrottest2() {
+		Mandelbrot distLessEscapeDistM = new Mandelbrot();
+		Coord p = new Coord (0.5946289062500001, 1.2949218750000122);
+		assertEquals(1, distLessEscapeDistM.escapeTime(p));
+	}
+	
 	@Test
 	public void Juliatest2() {
 		Julia distLessEscapeDistJ = new Julia();
@@ -137,6 +260,45 @@ public class MainTest {
 		Multibrot distLessEscapeDistMb = new Multibrot();
 		Coord p = new Coord (0.9921875, 1.05625);
 		assertEquals(1, distLessEscapeDistMb.escapeTime(p));
+	}
+	
+	
+	// Test 5 all work
+	
+	// BurningShip
+	@Test
+	public void BurningShipSizetest() {
+		BurningShip arrLength = new BurningShip();
+		int[][] arr = arrLength.calcFrac();
+		assertEquals(512, arr.length);
+		assertEquals(512, arr[0].length);		
+	}
+	
+	//Julia
+	@Test
+	public void JuliaSizetest() {
+		Julia arrLength = new Julia();
+		int[][] arr = arrLength.calcFrac();
+		assertEquals(512, arr.length);
+		assertEquals(512, arr[0].length);		
+	}
+	
+	//Mandelbrot
+	@Test
+	public void MandelbrotSizetest() {
+		Mandelbrot arrLength = new Mandelbrot();
+		int[][] arr = arrLength.calcFrac();
+		assertEquals(512, arr.length);
+		assertEquals(512, arr[0].length);	
+	}
+	
+	// Multibrot
+	@Test
+	public void MultibrotSizetest() {
+		Multibrot arrLength = new Multibrot();
+		int[][] arr = arrLength.calcFrac();
+		assertEquals(512, arr.length);
+		assertEquals(512, arr[0].length);		
 	}
 
 }
