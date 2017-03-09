@@ -1,8 +1,14 @@
-package edu.buffalo.cse116;
+package Tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import edu.buffalo.cse116.BurningShip;
+import edu.buffalo.cse116.Coord;
+import edu.buffalo.cse116.Julia;
+import edu.buffalo.cse116.Mandelbrot;
+import edu.buffalo.cse116.Multibrot;
 
 public class MainTest {
 

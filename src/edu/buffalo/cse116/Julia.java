@@ -1,14 +1,18 @@
 package edu.buffalo.cse116;
 
-public class Julia {
+public class Julia implements Fractal{
 	
-	int[][] _grid = new int[512][512];
-
-	public Julia(){
-		
+	private int[][] _grid;
+	
+	private int _escapeDist;
+	
+	public Julia() {
+		_grid = new int[512][512];
+		_escapeDist = 2;
 	}
 	
 	//Calculates fractal and returns array
+	@Override
 	public int[][] calcFrac(){
 		for (int row = 0; row < 512; row++){
 			for (int column = 0; column < 512; column++){
@@ -19,6 +23,7 @@ public class Julia {
 		return _grid;
 	}
 		
+	@Override
 	public int escapeTime(Coord calc){
 		
 		double xCalc = calc.x();
@@ -29,7 +34,7 @@ public class Julia {
 		
 		int passes = 0;
 		
-		while(dist <= 2 && passes < 255){
+		while(dist <= _escapeDist && passes < 255){
 			
 			double previousXCalc = xCalc;
 			
@@ -53,13 +58,20 @@ public class Julia {
 	}*/
 
 	// returns x coordinate associated with pixel
+	@Override
 	public double getXCoordinate(int row){
 		return -1.7 + (row * 0.006640625);
 	}
 			
 	// returns y coordinate associated with pixel
+	@Override
 	public double getYCoordinate(int column){
 		return -1 + (column * 0.00390625);
+	}
+
+	@Override
+	public void newEscapeDist(int dist) {
+		_escapeDist = dist;
 	}
 		
 }

@@ -1,14 +1,19 @@
 package edu.buffalo.cse116;
 
-public class BurningShip {
+public class BurningShip implements Fractal {
 	
-	int[][] _grid = new int[512][512];
+	private int[][] _grid;
+	
+	private int _escapeDist;
+	
 	
 	public BurningShip(){
-
+		_grid = new int[512][512];
+		_escapeDist = 2;
 	}
 	
 	//Calculates fractal and returns array
+	@Override
 	public int[][] calcFrac(){
 		
 		for (int row = 0; row < 512; row++){
@@ -21,6 +26,7 @@ public class BurningShip {
 		return _grid;
 	}
 		// Calculates escape time
+	@Override
 	public int escapeTime(Coord calc){
 		
 		double currentX = calc.x();
@@ -36,7 +42,7 @@ public class BurningShip {
 		int passes = 0;
 		
 		
-		while(dist <= 2 && passes < 255){
+		while(dist <= _escapeDist && passes < 255){
 			
 			double previousXCalc = xCalc;
 			
@@ -60,13 +66,20 @@ public class BurningShip {
 	}*/
 	
 	// returns x coordinate associated with pixel
+	@Override
 	public double getXCoordinate(int row){
 		return -1.8 + (row * 0.0001953125);
 	}
 		
 	// returns y coordinate associated with pixel
+	@Override
 	public double getYCoordinate(int column){
 		return -.08 + (column * .000205078125);
+	}
+
+	@Override
+	public void newEscapeDist(int dist) {
+		_escapeDist = dist;
 	}
 		
 
