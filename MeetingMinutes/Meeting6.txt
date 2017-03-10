@@ -1,0 +1,23 @@
+Meeting Minutes for _______March 9________:
+
+Meeting Attendance:
+  *Andrew 
+  *Steve 
+  *Brian (M)
+  *Cole
+Tasks completed since last meeting:
+  *Created UI menu for the fractal panel
+  *sucessfully implementing the fractalPanel and colorModelFactory classes
+
+Tasks started, but not completed, since last meeting:
+  * N/A
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  * Each team member is to write code for one color scheme option, including a unique scheme and an action Listener 
+  accompanying it. (Team)
+  * Work on the menu and related methods on changing the escape time for the fractals.
+
+
+
+Schedule for the next week's set of pair programming meetings:
+  * Meet Friday March 10 at 2:30 to make sure the color schemes work and determine a default color scheme
