@@ -17,17 +17,27 @@ import edu.buffalo.fractal.FractalPanel;
 
 public class FractalUI {
 	
+	//Fractal in use
 	private Fractal _frac;
 	
-	//FractalPanel
+	//Fractal Panel
 	private FractalPanel _fracPanel;
 	
-	//
+	//Color model
 	private IndexColorModel _colorModel;
 	
+	//Dimension of fractal
 	private Dimension _dim = new Dimension(512,512);
 	
+	//Escape Distance in use
+	private int _escapeDist;
+	
 	public FractalUI(){
+		
+		_frac = new Mandelbrot();
+		_escapeDist = 2;
+		_colorModel = ColorModelFactory.createGrayColorModel(300);
+		
 		
 		//Creating Window
 		JFrame window = new JFrame();
@@ -44,7 +54,7 @@ public class FractalUI {
 		//Fractal Option
 		JMenu fracMenu = new JMenu("Fractal");
 		
-		JMenuItem mandelbrot = new JMenuItem("Mandelbrot");
+		JMenuItem mandelbrot = new JMenuItem("Mandelbrot (default)");
 		mandelbrot.addActionListener(new MandelbrotListener(this));
 		fracMenu.add(mandelbrot);
 		
@@ -63,9 +73,31 @@ public class FractalUI {
 		//Color Option
 		JMenu colorMenu = new JMenu("Color");
 		
-		JMenuItem xray = new JMenuItem("X-Ray");
+		JMenuItem xray = new JMenuItem("X-Ray (default)");
 		xray.addActionListener(new xrayListener(this));
 		colorMenu.add(xray);
+		
+		JMenuItem ocean = new JMenuItem("Ocean");
+        ocean.addActionListener(new oceanListener(this));
+        colorMenu.add(ocean);
+        
+        JMenuItem cosmos = new JMenuItem("Cosmos");
+        cosmos.addActionListener(new cosmosListener(this));
+        colorMenu.add(cosmos);
+        
+
+        JMenuItem sunset = new JMenuItem("Sunset");
+        sunset.addActionListener(new sunsetListener(this));
+        colorMenu.add(sunset);
+        
+        //Escape Distance Option
+        JMenu escapeDistMenu = new JMenu("Escape Distance");
+        
+        JMenuItem change = new JMenuItem("Change");
+        change.addActionListener(new EscDistListener(this));
+        escapeDistMenu.add(change);
+        
+        
 	
 		//FractalPanel
 		_fracPanel = new FractalPanel();
@@ -75,15 +107,12 @@ public class FractalUI {
 		menuBar.add(fileMenu);
 		menuBar.add(fracMenu);
 		menuBar.add(colorMenu);
+		menuBar.add(escapeDistMenu);
 		
 		window.setJMenuBar(menuBar);
 		window.add(_fracPanel);
 		window.setVisible(true);
-		window.setSize(400, 400);
-		
-		
-		
-		
+		window.setSize(400, 400);	
 	}
 	
 	public void setMandelbrot(Mandelbrot m){
@@ -105,10 +134,15 @@ public class FractalUI {
 	public void setColorModel(IndexColorModel icm){
 		_colorModel = icm;
 	}
+	
+	public void setEscapeDist(int ed){
+		_escapeDist = ed;
+	}
 
 	public void updateFractal() {
 		_fracPanel.setSize(_dim);
 		_fracPanel.setIndexColorModel(_colorModel);
+		_frac.newEscapeDist(_escapeDist);
 		_fracPanel.updateImage(_frac.calcFrac());
 	}
 	
