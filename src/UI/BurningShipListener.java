@@ -8,11 +8,16 @@ import edu.buffalo.cse116.BurningShip;
 public class BurningShipListener implements ActionListener {
 
 	private FractalUI fracUI;
+	
+	public BurningShipListener(FractalUI f){
+		fracUI = f;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		BurningShip j = new BurningShip();
-		fracUI.setBurningShip(j);
+		BurningShip b = new BurningShip();
+		fracUI.setBurningShip(b);
+		fracUI.updateFractal();
 	}
 
 }
