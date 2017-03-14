@@ -1,5 +1,7 @@
 package edu.buffalo.cse116;
 
+//Coordinate class for escape time calculation
+
 public class Coord {
 	
 	double _x;

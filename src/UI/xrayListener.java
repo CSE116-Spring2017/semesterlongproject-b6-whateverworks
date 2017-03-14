@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.IndexColorModel;
 
+//Changes color to xray
+
 public class xrayListener implements ActionListener {
 
 private FractalUI fracUI;

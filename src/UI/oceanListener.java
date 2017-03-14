@@ -6,6 +6,8 @@ import java.awt.image.IndexColorModel;
 
 public class oceanListener implements ActionListener {
 
+//Changes color to ocean
+	
 private FractalUI fracUI;
 
         public oceanListener(FractalUI f){

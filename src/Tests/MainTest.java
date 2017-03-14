@@ -2,6 +2,8 @@ package Tests;
 
 import static org.junit.Assert.*;
 
+//Required tests
+
 import org.junit.Test;
 
 import edu.buffalo.cse116.BurningShip;
@@ -12,8 +14,6 @@ import edu.buffalo.cse116.Multibrot;
 
 public class MainTest {
 
-	
-	//Test 1 all work
 	
 	//Mandelbrot
 	@Test

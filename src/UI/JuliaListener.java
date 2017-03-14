@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import edu.buffalo.cse116.Julia;
 
+//Changes fractal to Julia
+
 public class JuliaListener implements ActionListener {
 
 	private FractalUI fracUI;

@@ -1,6 +1,6 @@
 package edu.buffalo.cse116;
 
-// Steven LeFebvre
+//Mandelbrot Fractal
 
 public class Mandelbrot implements Fractal{
 	

@@ -1,5 +1,7 @@
 package edu.buffalo.cse116;
 
+//Multibrot Fractal
+
 public class Multibrot implements Fractal {
 
 	private int[][] _grid;

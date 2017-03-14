@@ -1,5 +1,7 @@
 package edu.buffalo.cse116;
 
+//Burning Ship Fractal
+
 public class BurningShip implements Fractal {
 	
 	private int[][] _grid;

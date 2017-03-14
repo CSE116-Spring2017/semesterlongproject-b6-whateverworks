@@ -3,6 +3,8 @@ package UI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//exits program
+
 public class ExitListener implements ActionListener{
 
 	@Override

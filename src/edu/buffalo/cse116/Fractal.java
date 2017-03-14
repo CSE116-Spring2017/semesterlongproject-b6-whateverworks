@@ -1,5 +1,7 @@
 package edu.buffalo.cse116;
 
+//Interface for all fractals
+
 public interface Fractal {
 	
 	int[][] calcFrac();

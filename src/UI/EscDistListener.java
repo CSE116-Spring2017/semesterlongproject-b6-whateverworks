@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 
+//changes escape distance
+
 public class EscDistListener implements ActionListener {
 	
 	private FractalUI fracUI;

@@ -1,5 +1,7 @@
 package edu.buffalo.cse116;
 
+//Julia Fractal
+
 public class Julia implements Fractal{
 	
 	private int[][] _grid;

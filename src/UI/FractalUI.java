@@ -15,6 +15,8 @@ import edu.buffalo.cse116.Mandelbrot;
 import edu.buffalo.cse116.Multibrot;
 import edu.buffalo.fractal.FractalPanel;
 
+//responsible for updating and displaying fractal
+
 public class FractalUI {
 	
 	//Fractal in use

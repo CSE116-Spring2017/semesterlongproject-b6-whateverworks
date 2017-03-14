@@ -2,8 +2,9 @@ package UI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import edu.buffalo.cse116.BurningShip;
+
+//Changes fractal to Burning Ship
 
 public class BurningShipListener implements ActionListener {
 

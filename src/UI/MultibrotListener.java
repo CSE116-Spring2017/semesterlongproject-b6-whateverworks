@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import edu.buffalo.cse116.Multibrot;
 
+//Changes fractal to Multibrot
+
 public class MultibrotListener implements ActionListener {
 
 	private FractalUI fracUI;
