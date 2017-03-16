@@ -34,6 +34,8 @@ public class FractalUI {
 	//Escape Distance in use
 	private int _escapeDist;
 	
+	private JFrame _window;
+	
 	public FractalUI(){
 		
 		_frac = new Mandelbrot();
@@ -42,9 +44,10 @@ public class FractalUI {
 		
 		
 		//Creating Window
-		JFrame window = new JFrame();
-		window.setVisible(true);
-		window.setSize(512, 512);
+		_window = new JFrame();
+		_window.setVisible(true);
+		_window.setSize(512, 512);
+		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//File Option
 		JMenu fileMenu = new JMenu("File");
@@ -111,10 +114,10 @@ public class FractalUI {
 		menuBar.add(colorMenu);
 		menuBar.add(escapeDistMenu);
 		
-		window.setJMenuBar(menuBar);
-		window.add(_fracPanel);
-		window.setVisible(true);
-		window.setSize(400, 400);	
+		_window.setJMenuBar(menuBar);
+		_window.add(_fracPanel);
+		_window.setVisible(true);
+		_window.setSize(400, 400);	
 	}
 	
 	public void setMandelbrot(Mandelbrot m){
@@ -146,6 +149,7 @@ public class FractalUI {
 		_fracPanel.setIndexColorModel(_colorModel);
 		_frac.newEscapeDist(_escapeDist);
 		_fracPanel.updateImage(_frac.calcFrac());
+		_window.pack();
 	}
 	
 }
