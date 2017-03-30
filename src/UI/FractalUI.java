@@ -38,6 +38,7 @@ public class FractalUI {
 	
 	public FractalUI(){
 		
+		// sets default fractal, escape distance, and color model
 		_frac = new Mandelbrot();
 		_escapeDist = 2;
 		_colorModel = ColorModelFactory.createGrayColorModel(300);
@@ -52,52 +53,64 @@ public class FractalUI {
 		//File Option
 		JMenu fileMenu = new JMenu("File");
 		
+		//Exit for file
 		JMenuItem file = new JMenuItem("Exit");
 		file.addActionListener(new ExitListener());
 		fileMenu.add(file);
 		
+		
 		//Fractal Option
 		JMenu fracMenu = new JMenu("Fractal");
 		
+		//Mandelbrot for Fractal
 		JMenuItem mandelbrot = new JMenuItem("Mandelbrot (default)");
 		mandelbrot.addActionListener(new MandelbrotListener(this));
 		fracMenu.add(mandelbrot);
 		
+		//Julia for Fractal
 		JMenuItem julia = new JMenuItem("Julia");
 		julia.addActionListener(new JuliaListener(this));
 		fracMenu.add(julia);
 		
+		//Multibrot for Fractal
 		JMenuItem multibrot = new JMenuItem("Multibrot");
 		multibrot.addActionListener(new MultibrotListener(this));
 		fracMenu.add(multibrot);
 		
+		//BurningShipbrot for Fractal
 		JMenuItem burningship = new JMenuItem("Burning Ship");
 		burningship.addActionListener(new BurningShipListener(this));
 		fracMenu.add(burningship);
 		
+		
 		//Color Option
 		JMenu colorMenu = new JMenu("Color");
 		
+		//Xray for color
 		JMenuItem xray = new JMenuItem("X-Ray (default)");
 		xray.addActionListener(new xrayListener(this));
 		colorMenu.add(xray);
 		
+		//Ocean for color
 		JMenuItem ocean = new JMenuItem("Ocean");
         ocean.addActionListener(new oceanListener(this));
         colorMenu.add(ocean);
         
+        //Cosmos for color
         JMenuItem cosmos = new JMenuItem("Cosmos");
         cosmos.addActionListener(new cosmosListener(this));
         colorMenu.add(cosmos);
         
-
+        //Sunset for color
         JMenuItem sunset = new JMenuItem("Sunset");
         sunset.addActionListener(new sunsetListener(this));
         colorMenu.add(sunset);
         
+        
         //Escape Distance Option
         JMenu escapeDistMenu = new JMenu("Escape Distance");
         
+        //Change for escape distance
         JMenuItem change = new JMenuItem("Change");
         change.addActionListener(new EscDistListener(this));
         escapeDistMenu.add(change);
@@ -107,43 +120,52 @@ public class FractalUI {
 		//FractalPanel
 		_fracPanel = new FractalPanel();
 		
-		
+		// adds all options to menu
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.add(fileMenu);
 		menuBar.add(fracMenu);
 		menuBar.add(colorMenu);
 		menuBar.add(escapeDistMenu);
 		
+		// adds all parts to window
 		_window.setJMenuBar(menuBar);
 		_window.add(_fracPanel);
 		_window.setVisible(true);
 		_window.setSize(400, 400);	
 	}
 	
+	
+	//sets fractal as Mandelbrot
 	public void setMandelbrot(Mandelbrot m){
 		_frac = m;
 	}
 	
+	//sets fractal as Multibrot
 	public void setMultibrot(Multibrot m){
 		_frac = m;
 	}
 
+	//sets fractal as BurningShip
 	public void setBurningShip(BurningShip b) {
 		_frac = b;	
 	}
 
+	//sets fractal as Julia
 	public void setJulia(Julia j) {
 		_frac = j;	
 	}
 	
+	//sets color model
 	public void setColorModel(IndexColorModel icm){
 		_colorModel = icm;
 	}
 	
+	//sets escape distance
 	public void setEscapeDist(int ed){
 		_escapeDist = ed;
 	}
 
+	//Updates fractal and image
 	public void updateFractal() {
 		_fracPanel.setSize(_dim);
 		_fracPanel.setIndexColorModel(_colorModel);

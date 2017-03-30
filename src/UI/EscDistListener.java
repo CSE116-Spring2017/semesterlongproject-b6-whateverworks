@@ -21,6 +21,8 @@ public class EscDistListener implements ActionListener {
 		scanner = new Scanner(System.in);
 	    System.out.print("Enter an integer for a new escape distance: ");
 	    int escDist = 0;
+	    
+	    // displays error if invalid entry
 	    try{
 	    	escDist = scanner.nextInt();
 	    }

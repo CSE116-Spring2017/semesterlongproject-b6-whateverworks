@@ -27,7 +27,8 @@ public class BurningShip implements Fractal {
 		}
 		return _grid;
 	}
-		// Calculates escape time
+	
+	// Calculates escape time
 	@Override
 	public int escapeTime(Coord calc){
 		
@@ -60,12 +61,6 @@ public class BurningShip implements Fractal {
 		
 		return passes;
 	}
-		
-	// returns escape time at a specific point in our grid
-	/*public int gridEscapeTime(Point p){
-		
-		return _grid[p.x][p.y];
-	}*/
 	
 	// returns x coordinate associated with pixel
 	@Override
@@ -79,6 +74,7 @@ public class BurningShip implements Fractal {
 		return -.08 + (column * .000205078125);
 	}
 
+	// sets new escape distance for burning ship
 	@Override
 	public void newEscapeDist(int dist) {
 		_escapeDist = dist;

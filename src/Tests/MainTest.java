@@ -14,6 +14,7 @@ import edu.buffalo.cse116.Multibrot;
 
 public class MainTest {
 
+	//Tests pixels row in association with x coordinate in fractal
 	
 	//Mandelbrot
 	@Test
@@ -95,7 +96,7 @@ public class MainTest {
 	}
 
 	
-	//Test 2 all work
+	//Tests pixels column in association with y coordinate in fractal
 	
 	//JULIA
 	
@@ -203,7 +204,7 @@ public class MainTest {
 	
 	
 		
-	// Test 3 all work
+	// Tests points whose distance never exceeds escape distance
 	
 	@Test
 	public void BurningShiptest() {
@@ -235,7 +236,7 @@ public class MainTest {
 	
 	
 	
-	// Test 4 all work
+	// Tests points whose distance exceeds escape distance after a single pass
 	
 	@Test
 	public void Mandelbrottest2() {
@@ -252,6 +253,15 @@ public class MainTest {
 	}
 	
 	@Test
+	public void Multibrottest2() {
+		Multibrot distLessEscapeDistMb = new Multibrot();
+		Coord p = new Coord (0.9921875, 1.05625);
+		assertEquals(1, distLessEscapeDistMb.escapeTime(p));
+	}
+	
+	// Tests that none of the pixels in burning ship have an escape time of 0 or 1
+	
+	@Test
 	public void BurningShiptest2() {
 		BurningShip distLessEscapeDistB = new BurningShip();
 		Coord p = new Coord (-1.7443359374999874, -0.017451171875000338);
@@ -261,15 +271,8 @@ public class MainTest {
 	assertFalse(z == distLessEscapeDistB.escapeTime(p));
 	}
 	
-	@Test
-	public void Multibrottest2() {
-		Multibrot distLessEscapeDistMb = new Multibrot();
-		Coord p = new Coord (0.9921875, 1.05625);
-		assertEquals(1, distLessEscapeDistMb.escapeTime(p));
-	}
 	
-	
-	// Test 5 all work
+	//Tests that the 2d array has 512 rows and columns
 	
 	// BurningShip
 	@Test
@@ -309,7 +312,7 @@ public class MainTest {
 	
 	
 	
-	//Phase 2 tests
+	//Tests points with escape distances of 3 that have an escape time of 10
 	
 	@Test
     public void Mandelbrottest4() {

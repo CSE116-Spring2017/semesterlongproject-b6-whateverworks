@@ -25,6 +25,7 @@ public class Julia implements Fractal{
 		return _grid;
 	}
 		
+	//Calculates escape time
 	@Override
 	public int escapeTime(Coord calc){
 		
@@ -51,13 +52,6 @@ public class Julia implements Fractal{
 		
 		return passes;
 	}
-	
-	
-	// returns escape time at a specific point in our grid
-	/*public int gridEscapeTime(Point p){
-			
-		return _grid[p.x][p.y];
-	}*/
 
 	// returns x coordinate associated with pixel
 	@Override
@@ -71,6 +65,7 @@ public class Julia implements Fractal{
 		return -1 + (column * 0.00390625);
 	}
 
+	// Sets new escape distance for Julia
 	@Override
 	public void newEscapeDist(int dist) {
 		_escapeDist = dist;

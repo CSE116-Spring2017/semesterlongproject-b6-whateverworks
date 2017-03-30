@@ -1,0 +1,21 @@
+Meeting Minutes for _______March 30________:
+
+Meeting Attendance:
+  *Andrew 
+  *Steve (M)
+  *Brian 
+  *Cole
+Tasks completed since last meeting:
+  *Submitted phase 2
+
+Tasks started, but not completed, since last meeting:
+  * N/A (Spring Break)
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  * Each team member is to add a newMaxEscapeTime method to their fractal.
+  * Each team member is to write the new test for their fractal.
+
+
+
+Schedule for the next week's set of pair programming meetings:
+  * Meet Tuesday April 4th @ 3pm to finish escape time option and begin zoom option.

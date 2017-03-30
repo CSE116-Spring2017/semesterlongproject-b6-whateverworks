@@ -25,6 +25,7 @@ public class Multibrot implements Fractal {
 		return _grid;
 	}
 	
+	//Calculates escape time
 	@Override
 	public int escapeTime(Coord calc){
 		double currentX = calc.x();
@@ -43,11 +44,6 @@ public class Multibrot implements Fractal {
 		return passes;
 	}
 	
-	// returns escape time at a specific point in our grid
-		/*public int gridEscapeTime(Point p){
-			
-			return _grid[p.x][p.y];
-		}*/
 	
 	// returns x coordinate associated with pixel
 	@Override
@@ -61,6 +57,7 @@ public class Multibrot implements Fractal {
 		return -1.3 + (column * .005078125);
 	}
 
+	// sets new escape time for Multibrot
 	@Override
 	public void newEscapeDist(int dist) {
 		_escapeDist = dist;
