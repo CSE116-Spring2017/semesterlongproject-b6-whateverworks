@@ -13,5 +13,7 @@ public interface Fractal {
 	double getYCoordinate(int column);
 	
 	void newEscapeDist(int dist);
+	
+	void newMaxEscapeTime(int maxEscapeTime);
 
 }

@@ -344,8 +344,6 @@ public class MainTest {
             Multibrot distLessEscapeDistMb = new Multibrot();
             distLessEscapeDistMb.newEscapeDist(3);
             Coord c = new Coord (0.7025440313111545, -0.5520547945205528);
-            assertEquals(10 ,  distLessEscapeDistMb.escapeTime(c));
-
-                   
+            assertEquals(10 ,  distLessEscapeDistMb.escapeTime(c));          
     }
 }
