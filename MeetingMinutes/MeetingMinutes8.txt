@@ -1,0 +1,22 @@
+Meeting Minutes for _______April 6________:
+
+Meeting Attendance:
+  *Andrew 
+  *Steve 
+  *Brian (M)
+  *Cole
+Tasks completed since last meeting:
+  *Wrote new tests for each Fractal
+  *Finished new MaxEscapeTime method
+
+Tasks started, but not completed, since last meeting:
+  * Zoom functionality
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  * Finish Zoom function 
+  * Think about reset method
+
+
+
+Schedule for the next week's set of pair programming meetings:
+  * Meet Tuesday April 11 to write reset method.
