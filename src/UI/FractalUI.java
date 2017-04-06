@@ -34,6 +34,9 @@ public class FractalUI {
 	//Escape Distance in use
 	private int _escapeDist;
 	
+	//Max Escape Time in use
+	private int _maxEscapeTime;
+	
 	private JFrame _window;
 	
 	public FractalUI(){
@@ -41,6 +44,7 @@ public class FractalUI {
 		// sets default fractal, escape distance, and color model
 		_frac = new Mandelbrot();
 		_escapeDist = 2;
+		_maxEscapeTime = 255;
 		_colorModel = ColorModelFactory.createGrayColorModel(300);
 		
 		
@@ -116,6 +120,15 @@ public class FractalUI {
         escapeDistMenu.add(change);
         
         
+        //Max Escape Time Option
+        JMenu maxEscapeTimeMenu = new JMenu("Max Escape Time");
+        
+        //Change for escape time
+        JMenuItem changeEscT = new JMenuItem("Change");
+        changeEscT.addActionListener(new EscTimeListener(this));
+        maxEscapeTimeMenu.add(changeEscT);
+        
+        
 	
 		//FractalPanel
 		_fracPanel = new FractalPanel();
@@ -126,6 +139,7 @@ public class FractalUI {
 		menuBar.add(fracMenu);
 		menuBar.add(colorMenu);
 		menuBar.add(escapeDistMenu);
+		menuBar.add(maxEscapeTimeMenu);
 		
 		// adds all parts to window
 		_window.setJMenuBar(menuBar);
@@ -170,8 +184,14 @@ public class FractalUI {
 		_fracPanel.setSize(_dim);
 		_fracPanel.setIndexColorModel(_colorModel);
 		_frac.newEscapeDist(_escapeDist);
+		_frac.newMaxEscapeTime(_maxEscapeTime);
 		_fracPanel.updateImage(_frac.calcFrac());
 		_window.pack();
+	}
+
+	//sets max escape distance
+	public void setMaxEscapeTime(int escTime) {
+		_maxEscapeTime = escTime;
 	}
 	
 }

@@ -7,10 +7,13 @@ public class Multibrot implements Fractal {
 	private int[][] _grid;
 	
 	private int _escapeDist;
+	
+	private int _maxEscapeTime;
 
 	public Multibrot(){
 		_grid = new int[512][512];
 		_escapeDist = 2;
+		_maxEscapeTime = 255;
 	}
 	
 	//Calculates fractal and returns array
@@ -34,7 +37,7 @@ public class Multibrot implements Fractal {
 		double yCalc = calc.y();
 		double dist = Math.sqrt(Math.pow(xCalc - 0, 2) + Math.pow(yCalc - 0, 2));
 		int passes = 0;
-		while (dist <= _escapeDist && passes < 255){
+		while (dist <= _escapeDist && passes < _maxEscapeTime){
 			double previousXCalc = xCalc;
 			xCalc = Math.pow(xCalc, 3) - (3 * xCalc * Math.pow(yCalc, 2)) + currentX;
 			yCalc = (3 * Math.pow(previousXCalc, 2) * yCalc) - Math.pow(yCalc, 3) + currentY;
@@ -61,5 +64,10 @@ public class Multibrot implements Fractal {
 	@Override
 	public void newEscapeDist(int dist) {
 		_escapeDist = dist;
+	}
+
+	@Override
+	public void newMaxEscapeTime(int maxEscapeTime) {
+		_maxEscapeTime = maxEscapeTime;	
 	}
 }

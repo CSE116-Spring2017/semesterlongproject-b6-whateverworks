@@ -8,9 +8,12 @@ public class Julia implements Fractal{
 	
 	private int _escapeDist;
 	
+	private int _maxEscapeTime;
+	
 	public Julia() {
 		_grid = new int[512][512];
 		_escapeDist = 2;
+		_maxEscapeTime = 255;
 	}
 	
 	//Calculates fractal and returns array
@@ -37,7 +40,7 @@ public class Julia implements Fractal{
 		
 		int passes = 0;
 		
-		while(dist <= _escapeDist && passes < 255){
+		while(dist <= _escapeDist && passes < _maxEscapeTime){
 			
 			double previousXCalc = xCalc;
 			
@@ -69,6 +72,12 @@ public class Julia implements Fractal{
 	@Override
 	public void newEscapeDist(int dist) {
 		_escapeDist = dist;
+	}
+	
+	//Sets new escape time for Julia 
+	@Override
+	public void newMaxEscapeTime(int maxEscapeTime){
+		_maxEscapeTime = maxEscapeTime;
 	}
 		
 }

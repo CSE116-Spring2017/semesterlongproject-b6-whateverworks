@@ -346,4 +346,37 @@ public class MainTest {
             Coord c = new Coord (0.7025440313111545, -0.5520547945205528);
             assertEquals(10 ,  distLessEscapeDistMb.escapeTime(c));          
     }
+    
+    //tests points whose distance never exceeds escape distance with a max escape time of 135
+    @Test
+    public void MandelbrotEscapeTimeChangeTest() {
+			Mandelbrot etcTestM = new Mandelbrot();
+            etcTestM.newMaxEscapeTime(135);
+            Coord c = new Coord (0.3207031250000001, -0.07109374999999386);
+            assertEquals(135 , etcTestM.escapeTime(c));
+    }
+	
+	@Test
+    public void BurningShiptest5() {
+		BurningShip etcTestB = new BurningShip();
+		etcTestB.newMaxEscapeTime(135);
+		Coord c = new Coord (-1.7443359374999874, -0.017451171875000338);
+		assertEquals(135 ,  etcTestB.escapeTime(c));
+    }
+	
+	@Test
+	public void MultibrotEscTime() {
+		Multibrot etcTestMB = new Multibrot();
+		etcTestMB.newMaxEscapeTime(135);
+		Coord c = new Coord (0.5859375, 0.24375000000000108);
+		assertEquals(135, etcTestMB.escapeTime(c));
+	}
+	
+	@Test
+	public void JuliaTest5(){
+		Julia etcTestJ = new Julia();
+		etcTestJ.newMaxEscapeTime(135); 
+		Coord c = new Coord (1.0492187499999897, -0.234375);
+		assertEquals(135, etcTestJ.escapeTime(c));
+	}
 }
