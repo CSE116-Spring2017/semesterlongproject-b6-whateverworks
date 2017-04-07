@@ -22,9 +22,6 @@ public class FracMouseListener implements MouseListener {
 		int gridFirstX = (int) e.getX();
 		int gridFirstY = (int) e.getY();
 		
-		System.out.println(gridFirstX);
-		System.out.println(gridFirstY);
-		
 		fracUI.setLowerBounds(gridFirstX, gridFirstY);
 	}
 
@@ -32,9 +29,6 @@ public class FracMouseListener implements MouseListener {
 	public void mouseReleased(MouseEvent e) {
 		int gridLastX = (int) e.getX();
 		int gridLastY = (int) e.getY();
-		
-		System.out.println(gridLastX);
-		System.out.println(gridLastY);
 		
 		fracUI.setUpperBounds(gridLastX, gridLastY);
 		fracUI.updateFractal();
