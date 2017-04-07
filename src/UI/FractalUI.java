@@ -37,6 +37,14 @@ public class FractalUI {
 	//Max Escape Time in use
 	private int _maxEscapeTime;
 	
+	private int _gridFirstX;
+	
+	private int _gridFirstY;
+	
+	private int _gridLastX;
+	
+	private int _gridLastY;
+	
 	private JFrame _window;
 	
 	public FractalUI(){
@@ -46,7 +54,10 @@ public class FractalUI {
 		_escapeDist = 2;
 		_maxEscapeTime = 255;
 		_colorModel = ColorModelFactory.createGrayColorModel(300);
-		
+		_gridFirstX = 0;
+		_gridFirstY = 0;
+		_gridLastX = 512;
+		_gridLastY = 512;
 		
 		//Creating Window
 		_window = new JFrame();
@@ -146,6 +157,9 @@ public class FractalUI {
 		_window.add(_fracPanel);
 		_window.setVisible(true);
 		_window.setSize(400, 400);	
+		
+		
+		_fracPanel.addMouseListener(new FracMouseListener(this));
 	}
 	
 	
@@ -185,6 +199,9 @@ public class FractalUI {
 		_fracPanel.setIndexColorModel(_colorModel);
 		_frac.newEscapeDist(_escapeDist);
 		_frac.newMaxEscapeTime(_maxEscapeTime);
+		_frac.newBounds(_gridFirstX, _gridLastX, _gridFirstY, _gridLastY);
+		_frac.beginningBounds();
+		_frac.newInterval();
 		_fracPanel.updateImage(_frac.calcFrac());
 		_window.pack();
 	}
@@ -193,5 +210,17 @@ public class FractalUI {
 	public void setMaxEscapeTime(int escTime) {
 		_maxEscapeTime = escTime;
 	}
-	
+
+
+	public void setLowerBounds(int gridFirstX, int gridFirstY) {
+		_gridFirstX = gridFirstX;
+		_gridFirstY = gridFirstY;
+	}
+
+
+	public void setUpperBounds(int gridLastX, int gridLastY) {
+		_gridLastX = gridLastX;
+		_gridLastY = gridLastY;
+	}
+
 }

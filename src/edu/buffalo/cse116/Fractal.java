@@ -16,4 +16,9 @@ public interface Fractal {
 	
 	void newMaxEscapeTime(int maxEscapeTime);
 
+	void newBounds(int lowerX, int upperX, int lowerY, int upperY);
+	
+	void newInterval();
+	
+	void beginningBounds();
 }
