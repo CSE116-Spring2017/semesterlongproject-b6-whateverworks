@@ -2,7 +2,6 @@ package UI;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.MouseInfo;
 
 public class FracMouseListener implements MouseListener {
 	
