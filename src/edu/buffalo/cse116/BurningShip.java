@@ -10,10 +10,46 @@ public class BurningShip implements Fractal {
 	
 	private int _maxEscapeTime;
 	
+	private int _lowerX;
+	
+	private int _upperX;
+	
+	private int _lowerY
+		
+	private int _upperY
+		
+	private double _rowInterval;
+	
+	private double _columnInterval;
+	
+	private double _xBound;
+	
+	private double _yBound;
+	
+	private double _prevRowInterval;
+	
+	private double _prevColumnInterval;
+	
+	private double _prevXBound;
+	
+	private double _prevYBound;
+	
 	public BurningShip(){
 		_grid = new int[512][512];
 		_escapeDist = 2;
 		_maxEscapeTime = 255;
+		_lowerX = 0;
+		_lowerY = 0;
+		_upperX = 512;
+		_upperY = 512;
+		_rowInterval = 0.0001953125;
+		_columnInterval = .000205078125;
+		_xBound = -1.8;
+		_yBound = -1.0;
+		_prevRowInterval = 0.0001953125;
+		_prevColumnInterval = .000205078125;
+		_prevXBound = -1.8;
+		_prevYBound = -1.0;
 	}
 	
 	//Calculates fractal and returns array
@@ -22,7 +58,7 @@ public class BurningShip implements Fractal {
 		
 		for (int row = 0; row < 512; row++){
 			for (int column = 0; column < 512; column++){
-				Coord c = new Coord((-1.8 + (row * 0.0001953125)), ( -0.08 + (column * .000205078125)));
+				Coord c = new Coord((_xBound + (row * _rowInterval)), (_yBound + (column * _columnInterval)));
 				// row side is domain/512 column side is range/512
 				_grid[row][column] = escapeTime(c);
 			}		
@@ -64,16 +100,16 @@ public class BurningShip implements Fractal {
 		return passes;
 	}
 	
-	// returns x coordinate associated with pixel
+	// returns x coordinate asreturn _prevXBound + (row * _prevRowInterval);sociated with pixel
 	@Override
 	public double getXCoordinate(int row){
-		return -1.8 + (row * 0.0001953125);
+		return _prevXBound + (row * _prevRowInterval);
 	}
 		
 	// returns y coordinate associated with pixel
 	@Override
 	public double getYCoordinate(int column){
-		return -.08 + (column * .000205078125);
+		return _prevYBound + (column * _prevColumnInterval);
 	}
 
 	// sets new escape distance for burning ship
@@ -86,6 +122,29 @@ public class BurningShip implements Fractal {
 	public void newMaxEscapeTime(int maxEscapeTime) {
 		_maxEscapeTime = maxEscapeTime;
 	}
-		
+	@Override
+	public void newBounds(int lowerX, int upperX, int lowerY, int upperY) {
+		_lowerX = lowerX;
+		_lowerY = lowerY;
+		_upperX = upperX;
+		_upperY = upperY;
+	}
+
+	@Override
+	public void newInterval() {
+		_prevRowInterval = _rowInterval;
+		_prevColumnInterval = _columnInterval;
+		_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
+		_columnInterval = (getYCoordinate(_upperY) - _yBound) / 512;
+	}
+	
+	@Override
+	public void beginningBounds() {
+		_prevXBound = _xBound;
+		_prevYBound = _yBound;
+		_xBound = getXCoordinate(_lowerX);
+		_yBound = getYCoordinate(_lowerY);
+	}
+	
 
 }
