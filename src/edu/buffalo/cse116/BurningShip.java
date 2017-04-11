@@ -45,11 +45,11 @@ public class BurningShip implements Fractal {
 		_rowInterval = 0.0001953125;
 		_columnInterval = .000205078125;
 		_xBound = -1.8;
-		_yBound = -1.0;
+		_yBound = -.08;
 		_prevRowInterval = 0.0001953125;
 		_prevColumnInterval = .000205078125;
 		_prevXBound = -1.8;
-		_prevYBound = -1.0;
+		_prevYBound = -.08;
 	}
 	
 	//Calculates fractal and returns array
@@ -132,18 +132,34 @@ public class BurningShip implements Fractal {
 
 	@Override
 	public void newInterval() {
-		_prevRowInterval = _rowInterval;
-		_prevColumnInterval = _columnInterval;
 		_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
 		_columnInterval = (getYCoordinate(_upperY) - _yBound) / 512;
 	}
 	
 	@Override
 	public void beginningBounds() {
+		_prevRowInterval = _rowInterval;
+		_prevColumnInterval = _columnInterval;
 		_prevXBound = _xBound;
 		_prevYBound = _yBound;
 		_xBound = getXCoordinate(_lowerX);
 		_yBound = getYCoordinate(_lowerY);
+	}
+
+	@Override
+	public void reset() {
+		_lowerX = 0;
+		_lowerY = 0;
+		_upperX = 512;
+		_upperY = 512;
+		_rowInterval = 0.0001953125;
+		_columnInterval = .000205078125;
+		_xBound = -1.8;
+		_yBound = -.08;
+		_prevRowInterval = 0.0001953125;
+		_prevColumnInterval = .000205078125;
+		_prevXBound = -1.8;
+		_prevYBound = -.08;
 	}
 	
 

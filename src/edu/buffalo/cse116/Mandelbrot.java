@@ -134,18 +134,34 @@ public class Mandelbrot implements Fractal{
 
 	@Override
 	public void newInterval() {
-		_prevRowInterval = _rowInterval;
-		_prevColumnInterval = _columnInterval;
 		_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
 		_columnInterval = (getYCoordinate(_upperY) - _yBound) / 512;
 	}
 	
 	@Override
 	public void beginningBounds() {
+		_prevRowInterval = _rowInterval;
+		_prevColumnInterval = _columnInterval;
 		_prevXBound = _xBound;
 		_prevYBound = _yBound;
 		_xBound = getXCoordinate(_lowerX);
 		_yBound = getYCoordinate(_lowerY);
+	}
+
+	@Override
+	public void reset() {
+		_lowerX = 0;
+		_lowerY = 0;
+		_upperX = 512;
+		_upperY = 512;
+		_rowInterval = 0.00537109375;
+		_columnInterval = 0.005078125;
+		_xBound = -2.15;
+		_yBound = -1.3;
+		_prevRowInterval = 0.00537109375;
+		_prevColumnInterval = 0.005078125;
+		_prevXBound = -2.15;
+		_prevYBound = -1.3;
 	}
 
 }

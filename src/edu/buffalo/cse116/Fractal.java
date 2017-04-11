@@ -21,4 +21,6 @@ public interface Fractal {
 	void newInterval();
 	
 	void beginningBounds();
+
+	void reset();
 }

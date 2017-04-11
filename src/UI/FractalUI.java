@@ -140,9 +140,19 @@ public class FractalUI {
         maxEscapeTimeMenu.add(changeEscT);
         
         
+        //Reset Option
+        JMenu resetMenu = new JMenu("Reset");
+        
+        //Resets fracs
+        JMenuItem reset = new JMenuItem("Reset Zooom");
+        reset.addActionListener(new resetListener(this));
+        resetMenu.add(reset);
+        
+        
 	
 		//FractalPanel
 		_fracPanel = new FractalPanel();
+		_fracPanel.setSize(_dim);
 		
 		// adds all options to menu
 		JMenuBar menuBar = new JMenuBar();
@@ -151,6 +161,7 @@ public class FractalUI {
 		menuBar.add(colorMenu);
 		menuBar.add(escapeDistMenu);
 		menuBar.add(maxEscapeTimeMenu);
+		menuBar.add(resetMenu);
 		
 		// adds all parts to window
 		_window.setJMenuBar(menuBar);
@@ -191,17 +202,12 @@ public class FractalUI {
 	//sets escape distance
 	public void setEscapeDist(int ed){
 		_escapeDist = ed;
+		_frac.newEscapeDist(_escapeDist);
 	}
 
 	//Updates fractal and image
 	public void updateFractal() {
-		_fracPanel.setSize(_dim);
 		_fracPanel.setIndexColorModel(_colorModel);
-		_frac.newEscapeDist(_escapeDist);
-		_frac.newMaxEscapeTime(_maxEscapeTime);
-		_frac.newBounds(_gridFirstX, _gridLastX, _gridFirstY, _gridLastY);
-		_frac.beginningBounds();
-		_frac.newInterval();
 		_fracPanel.updateImage(_frac.calcFrac());
 		_window.pack();
 	}
@@ -209,6 +215,7 @@ public class FractalUI {
 	//sets max escape distance
 	public void setMaxEscapeTime(int escTime) {
 		_maxEscapeTime = escTime;
+		_frac.newMaxEscapeTime(_maxEscapeTime);
 	}
 
 
@@ -230,6 +237,24 @@ public class FractalUI {
 			_gridFirstY = gridFirstY;
 			_gridLastY = gridSecondY;
 		}
+		_frac.newBounds(_gridFirstX, _gridLastX, _gridFirstY, _gridLastY);
+		_frac.beginningBounds();
+		_frac.newInterval();
+	}
+	
+	public void printRange() {
+		System.out.println("X coordinate range displayed: " + _gridFirstX + " - " + _gridLastX);
+		System.out.println("Y coordinate range displayed: " + _gridFirstY + " - " + _gridLastY);
+		
+	}
+
+	public void reset() {
+		_gridFirstX = 0;
+		_gridFirstY = 0;
+		_gridLastX = 512;
+		_gridLastY = 512;
+		_frac.reset();
+		printRange();
 	}
 
 }

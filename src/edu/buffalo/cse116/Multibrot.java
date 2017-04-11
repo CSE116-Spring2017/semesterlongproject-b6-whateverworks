@@ -56,10 +56,10 @@ public class Multibrot implements Fractal {
 	
 	//Calculates fractal and returns array
 	@Override
-	public int[][] calcFrac(){
+	public int[][] calcFrac(){	
 		for (int row = 0; row < 512; row++){
 			for (int column = 0; column < 512; column++){
-				Coord c = new Coord((-1 + (row * _rowInterval)), (-1.3 + (column * _columnInterval)));
+				Coord c = new Coord((_xBound + (row * _rowInterval)), (_yBound + (column * _columnInterval)));
 				_grid[row][column] = escapeTime(c);
 			}
 		}
@@ -87,51 +87,66 @@ public class Multibrot implements Fractal {
 	
 	
 	// returns x coordinate associated with pixel
-	@Override
-	public double getXCoordinate(int row){
-		return _prevXBound + (row * _prevRowInterval);
-	}
-			
-	// returns y coordinate associated with pixel
-	@Override
-	public double getYCoordinate(int column){
-		return _prevYBound + (column * _prevColumnInterval);
-	}
+		@Override
+		public double getXCoordinate(int row){
+			return _prevXBound + (row * _prevRowInterval);
+		}
+		
+		// returns y coordinate associated with pixel
+		@Override
+		public double getYCoordinate(int column){
+			return _prevYBound + (column * _prevColumnInterval);
+		}
 
-	// sets new escape time for Multibrot
-	@Override
-	public void newEscapeDist(int dist) {
-		_escapeDist = dist;
-	}
+		// sets new escape distance for Mandelbrot
+		@Override
+		public void newEscapeDist(int dist) {
+			_escapeDist = dist;
+		}
 
-	@Override
-	public void newMaxEscapeTime(int maxEscapeTime) {
-		_maxEscapeTime = maxEscapeTime;	
-	}
+		@Override
+		public void newMaxEscapeTime(int maxEscapeTime) {
+			_maxEscapeTime = maxEscapeTime;
+		}
 
-	@Override
-	public void newBounds(int lowerX, int upperX, int lowerY, int upperY) {
-		_lowerX = lowerX;
-		_lowerY = lowerY;
-		_upperX = upperX;
-		_upperY = upperY;
-	}
+		@Override
+		public void newBounds(int lowerX, int upperX, int lowerY, int upperY) {
+			_lowerX = lowerX;
+			_lowerY = lowerY;
+			_upperX = upperX;
+			_upperY = upperY;
+		}
 
-	@Override
-	public void newInterval() {
-		_prevRowInterval = _rowInterval;
-		_prevColumnInterval = _columnInterval;
-		_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
-		_columnInterval = (getYCoordinate(_upperY) - _yBound) / 512;
-	}
-	
-	@Override
-	public void beginningBounds() {
-		_prevXBound = _xBound;
-		_prevYBound = _yBound;
-		_xBound = getXCoordinate(_lowerX);
-		_yBound = getYCoordinate(_lowerY);
-	}
+		@Override
+		public void newInterval() {
+			_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
+			_columnInterval = (getYCoordinate(_upperY) - _yBound) / 512;
+		}
+		
+		@Override
+		public void beginningBounds() {
+			_prevRowInterval = _rowInterval;
+			_prevColumnInterval = _columnInterval;
+			_xBound = getXCoordinate(_lowerX);
+			_yBound = getYCoordinate(_lowerY);
+		}
+
+		@Override
+		public void reset() {
+			_lowerX = 0;
+			_lowerY = 0;
+			_upperX = 512;
+			_upperY = 512;
+			_rowInterval = .00390625;
+			_columnInterval = .00507812;
+			_xBound = -1;
+			_yBound = -1.3;
+			_prevRowInterval = .00390625;
+			_prevColumnInterval = .00507812;
+			_prevXBound = -1;
+			_prevYBound = -1.3;
+		}
+
 
 
 }
