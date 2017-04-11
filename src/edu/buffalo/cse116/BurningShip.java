@@ -14,9 +14,9 @@ public class BurningShip implements Fractal {
 	
 	private int _upperX;
 	
-	private int _lowerY
+	private int _lowerY;
 		
-	private int _upperY
+	private int _upperY;
 		
 	private double _rowInterval;
 	
