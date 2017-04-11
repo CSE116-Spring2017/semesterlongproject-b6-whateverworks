@@ -6,9 +6,14 @@ import java.awt.event.MouseListener;
 public class FracMouseListener implements MouseListener {
 	
 	private FractalUI fracUI;
+	private int _gridFirstX, _gridFirstY, _gridSecondX, _gridSecondY;
 	
 	public FracMouseListener(FractalUI f){
 		fracUI = f;
+		_gridFirstX = 0;
+		_gridFirstY = 0;
+		_gridSecondX = 0;
+		_gridSecondY = 0;
 	}
 
 	@Override
@@ -18,18 +23,16 @@ public class FracMouseListener implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		int gridFirstX = (int) e.getX();
-		int gridFirstY = (int) e.getY();
-		
-		fracUI.setLowerBounds(gridFirstX, gridFirstY);
+		int _gridFirstX = (int) e.getX();
+		int _gridFirstY = (int) e.getY();
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		int gridLastX = (int) e.getX();
-		int gridLastY = (int) e.getY();
+		int _gridSecondX = (int) e.getX();
+		int _gridSecondY = (int) e.getY();
 		
-		fracUI.setUpperBounds(gridLastX, gridLastY);
+		fracUI.setBounds(_gridFirstX, _gridFirstY, _gridSecondX, _gridSecondY);
 		fracUI.updateFractal();
 	}
 

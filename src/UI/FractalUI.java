@@ -212,15 +212,24 @@ public class FractalUI {
 	}
 
 
-	public void setLowerBounds(int gridFirstX, int gridFirstY) {
-		_gridFirstX = gridFirstX;
-		_gridFirstY = gridFirstY;
-	}
-
-
-	public void setUpperBounds(int gridLastX, int gridLastY) {
-		_gridLastX = gridLastX;
-		_gridLastY = gridLastY;
+	public void setBounds(int gridFirstX, int gridFirstY, int gridSecondX, int gridSecondY) {
+		if (gridFirstX > gridSecondX){
+			_gridFirstX = gridSecondX;
+			_gridLastX = gridFirstX;
+		}
+		else{
+			_gridFirstX = gridFirstX;
+			_gridLastX = gridSecondX;
+		}
+		
+		if (gridFirstY > gridSecondY){
+			_gridFirstY = gridSecondY;
+			_gridLastY = gridFirstY;
+		}
+		else{
+			_gridFirstY = gridFirstY;
+			_gridLastY = gridSecondY;
+		}
 	}
 
 }
