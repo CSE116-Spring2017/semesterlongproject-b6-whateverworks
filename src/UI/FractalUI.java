@@ -218,7 +218,7 @@ public class FractalUI {
 		_frac.newMaxEscapeTime(_maxEscapeTime);
 	}
 
-
+	// sets bounds for the fractal
 	public void setBounds(int gridFirstX, int gridFirstY, int gridSecondX, int gridSecondY) {
 		if (gridFirstX > gridSecondX){
 			_gridFirstX = gridSecondX;
@@ -241,13 +241,13 @@ public class FractalUI {
 		_frac.beginningBounds();
 		_frac.newInterval();
 	}
-	
+	// prints out the X and Y coordinate ranges
 	public void printRange() {
 		System.out.println("X coordinate range displayed: " + _gridFirstX + " - " + _gridLastX);
 		System.out.println("Y coordinate range displayed: " + _gridFirstY + " - " + _gridLastY);
 		
 	}
-
+	// resets the bounds
 	public void reset() {
 		_gridFirstX = 0;
 		_gridFirstY = 0;
