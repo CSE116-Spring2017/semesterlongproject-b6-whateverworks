@@ -118,12 +118,12 @@ public class Mandelbrot implements Fractal{
 	public void newEscapeDist(int dist) {
 		_escapeDist = dist;
 	}
-
+	// sets new max escape time for Mandelbrot
 	@Override
 	public void newMaxEscapeTime(int maxEscapeTime) {
 		_maxEscapeTime = maxEscapeTime;
 	}
-
+	// sets new bounds for the Mandelbrot
 	@Override
 	public void newBounds(int lowerX, int upperX, int lowerY, int upperY) {
 		_lowerX = lowerX;
@@ -131,7 +131,7 @@ public class Mandelbrot implements Fractal{
 		_upperX = upperX;
 		_upperY = upperY;
 	}
-
+	// sets new row and column intervals for the Mandelbrot
 	@Override
 	public void newInterval() {
 		_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
@@ -147,7 +147,7 @@ public class Mandelbrot implements Fractal{
 		_xBound = getXCoordinate(_lowerX);
 		_yBound = getYCoordinate(_lowerY);
 	}
-
+	// resets the fractal back to the default position
 	@Override
 	public void reset() {
 		_lowerX = 0;
