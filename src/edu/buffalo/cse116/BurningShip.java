@@ -130,7 +130,7 @@ public class BurningShip implements Fractal {
 		_upperX = upperX;
 		_upperY = upperY;
 	}
-
+	// sets new row and column intervals for the burning ship
 	@Override
 	public void newInterval() {
 		_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
@@ -146,7 +146,7 @@ public class BurningShip implements Fractal {
 		_xBound = getXCoordinate(_lowerX);
 		_yBound = getYCoordinate(_lowerY);
 	}
-	// resets the zoom back to the default posistion
+	// resets the fractal back to the default posistion
 	@Override
 	public void reset() {
 		_lowerX = 0;
