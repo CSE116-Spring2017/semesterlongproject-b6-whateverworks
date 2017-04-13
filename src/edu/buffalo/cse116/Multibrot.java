@@ -98,17 +98,17 @@ public class Multibrot implements Fractal {
 			return _prevYBound + (column * _prevColumnInterval);
 		}
 
-		// sets new escape distance for Mandelbrot
+		// sets new escape distance for Multibrot
 		@Override
 		public void newEscapeDist(int dist) {
 			_escapeDist = dist;
 		}
-
+		// sets new max escape time for Multibrot
 		@Override
 		public void newMaxEscapeTime(int maxEscapeTime) {
 			_maxEscapeTime = maxEscapeTime;
 		}
-
+		// sets new bounds for Multibrot
 		@Override
 		public void newBounds(int lowerX, int upperX, int lowerY, int upperY) {
 			_lowerX = lowerX;
@@ -116,7 +116,7 @@ public class Multibrot implements Fractal {
 			_upperX = upperX;
 			_upperY = upperY;
 		}
-
+		// sets new row and column intervals for Multibrot
 		@Override
 		public void newInterval() {
 			_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
@@ -130,7 +130,7 @@ public class Multibrot implements Fractal {
 			_xBound = getXCoordinate(_lowerX);
 			_yBound = getYCoordinate(_lowerY);
 		}
-
+		// resets the fractal back to the default position
 		@Override
 		public void reset() {
 			_lowerX = 0;
