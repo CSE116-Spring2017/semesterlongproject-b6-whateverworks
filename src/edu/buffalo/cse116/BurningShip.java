@@ -117,11 +117,12 @@ public class BurningShip implements Fractal {
 	public void newEscapeDist(int dist) {
 		_escapeDist = dist;
 	}
-
+	// sets new max escape time for burning ship
 	@Override
 	public void newMaxEscapeTime(int maxEscapeTime) {
 		_maxEscapeTime = maxEscapeTime;
 	}
+	// sets new bounds for the burning ship
 	@Override
 	public void newBounds(int lowerX, int upperX, int lowerY, int upperY) {
 		_lowerX = lowerX;
@@ -145,7 +146,7 @@ public class BurningShip implements Fractal {
 		_xBound = getXCoordinate(_lowerX);
 		_yBound = getYCoordinate(_lowerY);
 	}
-
+	// resets the zoom back to the default posistion
 	@Override
 	public void reset() {
 		_lowerX = 0;
