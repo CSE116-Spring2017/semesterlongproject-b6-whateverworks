@@ -146,7 +146,7 @@ public class BurningShip implements Fractal {
 		_xBound = getXCoordinate(_lowerX);
 		_yBound = getYCoordinate(_lowerY);
 	}
-	// resets the fractal back to the default posistion
+	// resets the fractal back to the default position
 	@Override
 	public void reset() {
 		_lowerX = 0;
