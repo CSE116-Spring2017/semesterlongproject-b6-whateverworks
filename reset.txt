@@ -1,0 +1,1 @@
+To reset the zoom on a fractal, press the reset zoom button.
