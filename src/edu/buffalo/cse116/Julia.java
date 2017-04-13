@@ -115,7 +115,7 @@ public class Julia implements Fractal{
 	public void newMaxEscapeTime(int maxEscapeTime){
 		_maxEscapeTime = maxEscapeTime;
 	}
-	
+	// sets new bounds for Julia
 	@Override
 	public void newBounds(int lowerX, int upperX, int lowerY, int upperY) {
 		_lowerX = lowerX;
@@ -123,7 +123,7 @@ public class Julia implements Fractal{
 		_upperX = upperX;
 		_upperY = upperY;
 	}
-
+	// sets new row and column intervals for Julia
 	@Override
 	public void newInterval() {
 		_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
@@ -139,7 +139,7 @@ public class Julia implements Fractal{
 		_xBound = getXCoordinate(_lowerX);
 		_yBound = getYCoordinate(_lowerY);
 	}
-
+	// resets the fractal back to the default position
 	@Override
 	public void reset() {
 		_lowerX = 0;
