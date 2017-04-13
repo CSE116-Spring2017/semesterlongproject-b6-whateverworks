@@ -34,6 +34,7 @@ public class BurningShip implements Fractal {
 	
 	private double _prevYBound;
 	
+	// Populates array using escapeTime method
 	public BurningShip(){
 		_grid = new int[512][512];
 		_escapeDist = 2;
@@ -100,7 +101,7 @@ public class BurningShip implements Fractal {
 		return passes;
 	}
 	
-	// returns x coordinate asreturn _prevXBound + (row * _prevRowInterval);sociated with pixel
+	// returns x coordinate associated with pixel
 	@Override
 	public double getXCoordinate(int row){
 		return _prevXBound + (row * _prevRowInterval);
@@ -136,7 +137,7 @@ public class BurningShip implements Fractal {
 		_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
 		_columnInterval = (getYCoordinate(_upperY) - _yBound) / 512;
 	}
-	
+	// stores previous intervals and bounds
 	@Override
 	public void beginningBounds() {
 		_prevRowInterval = _rowInterval;

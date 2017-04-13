@@ -3,6 +3,8 @@ package UI;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+// records and implements the mouse movement
+
 public class FracMouseListener implements MouseListener {
 	
 	private FractalUI fracUI;

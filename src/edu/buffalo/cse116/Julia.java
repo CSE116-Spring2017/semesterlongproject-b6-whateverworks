@@ -34,6 +34,7 @@ public class Julia implements Fractal{
 	
 	private double _prevYBound;
 	
+	// Populates array using escapeTime method 
 	public Julia() {
 		_grid = new int[512][512];
 		_escapeDist = 2;
@@ -129,7 +130,7 @@ public class Julia implements Fractal{
 		_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
 		_columnInterval = (getYCoordinate(_upperY) - _yBound) / 512;
 	}
-	
+	// stores previous intervals and bounds
 	@Override
 	public void beginningBounds() {
 		_prevRowInterval = _rowInterval;

@@ -137,7 +137,7 @@ public class Mandelbrot implements Fractal{
 		_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
 		_columnInterval = (getYCoordinate(_upperY) - _yBound) / 512;
 	}
-	
+	// stores previous intervals and bounds
 	@Override
 	public void beginningBounds() {
 		_prevRowInterval = _rowInterval;
