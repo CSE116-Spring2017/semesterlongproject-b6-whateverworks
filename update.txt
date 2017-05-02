@@ -7,3 +7,6 @@ To update max escape time, click max escape time and then change.
 A message will appear in the console and you can type a new integer and hit enter. 
 The fractal will update immediately.
 If an invalid number is entered an error is thrown
+
+
+To zoom click drag and release the area that you want to zoom

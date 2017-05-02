@@ -1,4 +1,4 @@
-package edu.buffalo.fractal;
+package edu.buffalo.cse116;
 
 /**
  * Instances of this class represent the results of a thread's escape time calculations. Each instance stores the 2-d

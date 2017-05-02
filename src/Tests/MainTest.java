@@ -187,19 +187,19 @@ public class MainTest {
 	@Test
 	public void colLastMutli() {
 		Multibrot col = new Multibrot();
-		assertEquals(1.3, col.getYCoordinate(512), .0000000001);
+		assertEquals(1.3, col.getYCoordinate(512), .00001);
 	}
 		
 	@Test
 	public void colMidMutli() {
 		Multibrot col = new Multibrot();
-		assertEquals(-0.005078125, col.getYCoordinate(255), .0000000001);
+		assertEquals(-0.005078125, col.getYCoordinate(255), .00001);
 	}
 		
 	@Test
 	public void colRandMutli() {
 		Multibrot col = new Multibrot();
-		assertEquals(-0.756640625, col.getYCoordinate(107), .0000000001);
+		assertEquals(-0.756640625, col.getYCoordinate(107), .00001);
 	}
 	
 	

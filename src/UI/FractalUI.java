@@ -143,8 +143,8 @@ public class FractalUI {
         //Reset Option
         JMenu resetMenu = new JMenu("Reset");
         
-        //Resets fracs
-        JMenuItem reset = new JMenuItem("Reset Zooom");
+        //Resets Zoom
+        JMenuItem reset = new JMenuItem("Reset Zoom");
         reset.addActionListener(new resetListener(this));
         resetMenu.add(reset);
         

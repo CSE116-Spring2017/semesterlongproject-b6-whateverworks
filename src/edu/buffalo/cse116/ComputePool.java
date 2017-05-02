@@ -1,4 +1,4 @@
-package edu.buffalo.fractal;
+package edu.buffalo.cse116;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -7,6 +7,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 import javax.swing.SwingWorker;
+
+import edu.buffalo.fractal.FractalPanel;
 
 /**
  * This class is used to manage sets of tasks that should be executed in parallel. In particular, it makes it much
