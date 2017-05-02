@@ -26,13 +26,13 @@ public class MainTest {
 	@Test
 	public void rowMaxMandel() {
 		Mandelbrot row = new Mandelbrot();
-		assertEquals(.6, row.getXCoordinate(512), .0000000000001);
+		assertEquals(.6, row.getXCoordinate(2048), .0000000000001);
 	}
 		
 	@Test
 	public void rowRandMandel() {
 		Mandelbrot row = new Mandelbrot();
-		assertEquals(-0.29697265625, row.getXCoordinate(345), .0000000000001);
+		assertEquals(-1.6867431640625, row.getXCoordinate(345), .00000000000001);
 	}
 		
 	//Julia
@@ -46,13 +46,13 @@ public class MainTest {
 	@Test
 	public void rowMaxJulia() {
 		Julia row = new Julia();
-		assertEquals(1.7, row.getXCoordinate(512), .0000000000001);
+		assertEquals(1.7, row.getXCoordinate(2048), .0000000000001);
 	}
 		
 	@Test
 	public void rowRandJulia() {
 		Julia row = new Julia();
-		assertEquals(-0.6109375, row.getXCoordinate(164), .0000000000001);
+		assertEquals(-1.427734375, row.getXCoordinate(164), .0000000001);
 	}
 			
 	//Burning Ship
@@ -66,13 +66,13 @@ public class MainTest {
 	@Test
 	public void rowMaxBurning() {
 		BurningShip row = new BurningShip();
-		assertEquals(-1.7, row.getXCoordinate(512), .0000000000001);
+		assertEquals(-1.7, row.getXCoordinate(2048), .0000000000001);
 	}
 		
 	@Test
 	public void rowRandBurning() {
 		BurningShip row = new BurningShip();
-		assertEquals(-1.71796875, row.getXCoordinate(420), .0000000000001);
+		assertEquals(-1.7794921875, row.getXCoordinate(420), .00000000001);
 	}
 		
 	//Multibrot
@@ -86,13 +86,13 @@ public class MainTest {
 	@Test
 	public void rowMaxMutli() {
 		Multibrot row = new Multibrot();
-		assertEquals(1.0, row.getXCoordinate(512), .0000000000001);
+		assertEquals(1.0, row.getXCoordinate(2048), .0000000000001);
 	}
 		
 	@Test
 	public void rowRandMutli() {
 		Multibrot row = new Multibrot();
-		assertEquals(.1484375, row.getXCoordinate(294), .0000000000001);
+		assertEquals(-0.712890625, row.getXCoordinate(294), .0000000001);
 	}
 
 	
@@ -109,19 +109,19 @@ public class MainTest {
 	@Test
 	public void colLastJulia() {
 		Julia col = new Julia();
-		assertEquals(1.0, col.getYCoordinate(512), .0000000001);
+		assertEquals(1.0, col.getYCoordinate(2048), .0000000001);
 	}
 	
 	@Test
 	public void colMidJulia() {
 		Julia col = new Julia();
-		assertEquals(-0.00390625, col.getYCoordinate(255), .0000000001);
+		assertEquals(-0.7509765625, col.getYCoordinate(255), .00000000001);
 	}
 		
 	@Test
 	public void colRandJulia() {
 		Julia col = new Julia();
-		assertEquals(-0.85546875, col.getYCoordinate(37), .0000000001);
+		assertEquals(-0.9638671875, col.getYCoordinate(37), .0000000001);
 	}
 		
 	//Mandelbrot
@@ -135,19 +135,19 @@ public class MainTest {
 	@Test
 	public void colLastMandel() {
 		Mandelbrot col = new Mandelbrot();
-		assertEquals(1.3, col.getYCoordinate(512), .0000000001);
+		assertEquals(1.3, col.getYCoordinate(2048), .0000000001);
 	}
 		
 	@Test
 	public void colMidMandel() {
 		Mandelbrot col = new Mandelbrot();
-		assertEquals(-0.005078125, col.getYCoordinate(255), .0000000001);
+		assertEquals(-0.97626953125, col.getYCoordinate(255), .000000000001);
 	}
 		
 	@Test
 	public void colRandMandel() {
 		Mandelbrot col = new Mandelbrot();
-		assertEquals(0.705859375, col.getYCoordinate(395), .0000000001);
+		assertEquals(-0.79853515625, col.getYCoordinate(395), .000000000001);
 	}
 		
 	//Burning Ship
@@ -161,19 +161,19 @@ public class MainTest {
 	@Test
 	public void colLastBurning() {
 		BurningShip col = new BurningShip();
-		assertEquals(0.025, col.getYCoordinate(512), .0000000001);
+		assertEquals(0.025, col.getYCoordinate(2048), .0000000001);
 	}
 		
 	@Test
 	public void colMidBurning() {
 		BurningShip col = new BurningShip();
-		assertEquals(-0.027705078125, col.getYCoordinate(255), .0000000001);
+		assertEquals(-0.06692626953125, col.getYCoordinate(255), .000000000000001);
 	}
 		
 	@Test
 	public void colRandBurning() {
 		BurningShip col = new BurningShip();
-		assertEquals(-0.02298828125, col.getYCoordinate(278), .0000000001);
+		assertEquals(-0.0657470703125, col.getYCoordinate(278), .00000000000001);
 	}
 		
 	//Multibrot
@@ -187,19 +187,19 @@ public class MainTest {
 	@Test
 	public void colLastMutli() {
 		Multibrot col = new Multibrot();
-		assertEquals(1.3, col.getYCoordinate(512), .00001);
+		assertEquals(1.3, col.getYCoordinate(2048), .00001);
 	}
 		
 	@Test
 	public void colMidMutli() {
 		Multibrot col = new Multibrot();
-		assertEquals(-0.005078125, col.getYCoordinate(255), .00001);
+		assertEquals(-0.97626953125, col.getYCoordinate(255), .000000000001);
 	}
 		
 	@Test
 	public void colRandMutli() {
 		Multibrot col = new Multibrot();
-		assertEquals(-0.756640625, col.getYCoordinate(107), .00001);
+		assertEquals(-1.16416015625, col.getYCoordinate(107), .000000000001);
 	}
 	
 	
@@ -279,8 +279,8 @@ public class MainTest {
 	public void BurningShipSizetest() {
 		BurningShip arrLength = new BurningShip();
 		int[][] arr = arrLength.calcFrac();
-		assertEquals(512, arr.length);
-		assertEquals(512, arr[0].length);		
+		assertEquals(2048, arr.length);
+		assertEquals(2048, arr[0].length);		
 	}
 	
 	//Julia
@@ -288,8 +288,8 @@ public class MainTest {
 	public void JuliaSizetest() {
 		Julia arrLength = new Julia();
 		int[][] arr = arrLength.calcFrac();
-		assertEquals(512, arr.length);
-		assertEquals(512, arr[0].length);		
+		assertEquals(2048, arr.length);
+		assertEquals(2048, arr[0].length);		
 	}
 	
 	//Mandelbrot
@@ -297,8 +297,8 @@ public class MainTest {
 	public void MandelbrotSizetest() {
 		Mandelbrot arrLength = new Mandelbrot();
 		int[][] arr = arrLength.calcFrac();
-		assertEquals(512, arr.length);
-		assertEquals(512, arr[0].length);	
+		assertEquals(2048, arr.length);
+		assertEquals(2048, arr[0].length);	
 	}
 	
 	// Multibrot
@@ -306,8 +306,8 @@ public class MainTest {
 	public void MultibrotSizetest() {
 		Multibrot arrLength = new Multibrot();
 		int[][] arr = arrLength.calcFrac();
-		assertEquals(512, arr.length);
-		assertEquals(512, arr[0].length);		
+		assertEquals(2048, arr.length);
+		assertEquals(2048, arr[0].length);		
 	}
 	
 	

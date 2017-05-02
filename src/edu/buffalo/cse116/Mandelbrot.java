@@ -38,19 +38,19 @@ public class Mandelbrot implements Fractal{
 	
 	// Populates array using escapeTime method
 	public Mandelbrot(){
-		_grid = new int[512][512];
+		_grid = new int[2048][2048];
 		_escapeDist = 2;
 		_maxEscapeTime = 255;
 		_lowerX = 0;
 		_lowerY = 0;
-		_upperX = 512;
-		_upperY = 512;
-		_rowInterval = 0.00537109375;
-		_columnInterval = 0.005078125;
+		_upperX = 2048;
+		_upperY = 2048;
+		_rowInterval = 0.0013427734375;
+		_columnInterval = 0.00126953125;
 		_xBound = -2.15;
 		_yBound = -1.3;
-		_prevRowInterval = 0.00537109375;
-		_prevColumnInterval = 0.005078125;
+		_prevRowInterval = 0.0013427734375;
+		_prevColumnInterval = 0.00126953125;
 		_prevXBound = -2.15;
 		_prevYBound = -1.3;
 	}
@@ -58,8 +58,8 @@ public class Mandelbrot implements Fractal{
 	//Calculates fractal and returns array
 	@Override
 	public int[][] calcFrac(){	
-		for (int row = 0; row < 512; row++){
-			for (int column = 0; column < 512; column++){
+		for (int row = 0; row < 2048; row++){
+			for (int column = 0; column < 2048; column++){
 				Coord c = new Coord((_xBound + (row * _rowInterval)), (_yBound + (column * _columnInterval)));
 				_grid[row][column] = escapeTime(c);
 			}
@@ -134,8 +134,8 @@ public class Mandelbrot implements Fractal{
 	// sets new row and column intervals for the Mandelbrot
 	@Override
 	public void newInterval() {
-		_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
-		_columnInterval = (getYCoordinate(_upperY) - _yBound) / 512;
+		_rowInterval = Math.round(((getXCoordinate(_upperX) - _xBound) / 2048) * 100000000000000.0) / 100000000000000.0;
+		_columnInterval = Math.round(((getYCoordinate(_upperY) - _yBound) / 2048) * 100000000000000.0) / 100000000000000.0;
 	}
 	// stores previous intervals and bounds
 	@Override
@@ -144,22 +144,22 @@ public class Mandelbrot implements Fractal{
 		_prevColumnInterval = _columnInterval;
 		_prevXBound = _xBound;
 		_prevYBound = _yBound;
-		_xBound = getXCoordinate(_lowerX);
-		_yBound = getYCoordinate(_lowerY);
+		_xBound = Math.round(getXCoordinate(_lowerX) * 100000000000000.0) / 100000000000000.0;
+		_yBound = Math.round(getYCoordinate(_lowerY) * 100000000000000.0) / 100000000000000.0;
 	}
 	// resets the fractal back to the default position
 	@Override
 	public void reset() {
 		_lowerX = 0;
 		_lowerY = 0;
-		_upperX = 512;
-		_upperY = 512;
-		_rowInterval = 0.00537109375;
-		_columnInterval = 0.005078125;
+		_upperX = 2048;
+		_upperY = 2048;
+		_rowInterval = 0.0013427734375;
+		_columnInterval = 0.00126953125;
 		_xBound = -2.15;
 		_yBound = -1.3;
-		_prevRowInterval = 0.00537109375;
-		_prevColumnInterval = 0.005078125;
+		_prevRowInterval = 0.0013427734375;
+		_prevColumnInterval = 0.00126953125;
 		_prevXBound = -2.15;
 		_prevYBound = -1.3;
 	}

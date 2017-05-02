@@ -25,15 +25,15 @@ public class FracMouseListener implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		_gridFirstX = (int) e.getX();
-		_gridFirstY = (int) e.getY();
+		_gridFirstX = e.getX();
+		_gridFirstY = e.getY();
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		_gridSecondX = (int) e.getX();
-		_gridSecondY = (int) e.getY();
+		_gridSecondX = e.getX();
+		_gridSecondY = e.getY();
 		
 		fracUI.setBounds(_gridFirstX, _gridFirstY, _gridSecondX, _gridSecondY);
 		fracUI.printRange();

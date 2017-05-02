@@ -36,19 +36,19 @@ public class BurningShip implements Fractal {
 	
 	// Populates array using escapeTime method
 	public BurningShip(){
-		_grid = new int[512][512];
+		_grid = new int[2048][2048];
 		_escapeDist = 2;
 		_maxEscapeTime = 255;
 		_lowerX = 0;
 		_lowerY = 0;
-		_upperX = 512;
-		_upperY = 512;
-		_rowInterval = 0.0001953125;
-		_columnInterval = .000205078125;
+		_upperX = 2048;
+		_upperY = 2048;
+		_rowInterval = 0.000048828125;
+		_columnInterval = 0.00005126953125;
 		_xBound = -1.8;
 		_yBound = -.08;
-		_prevRowInterval = 0.0001953125;
-		_prevColumnInterval = .000205078125;
+		_prevRowInterval = 0.000048828125;
+		_prevColumnInterval = 0.00005126953125;
 		_prevXBound = -1.8;
 		_prevYBound = -.08;
 	}
@@ -57,8 +57,8 @@ public class BurningShip implements Fractal {
 	@Override
 	public int[][] calcFrac(){
 		
-		for (int row = 0; row < 512; row++){
-			for (int column = 0; column < 512; column++){
+		for (int row = 0; row < 2048; row++){
+			for (int column = 0; column < 2048; column++){
 				Coord c = new Coord((_xBound + (row * _rowInterval)), (_yBound + (column * _columnInterval)));
 				// row side is domain/512 column side is range/512
 				_grid[row][column] = escapeTime(c);
@@ -134,8 +134,8 @@ public class BurningShip implements Fractal {
 	// sets new row and column intervals for the burning ship
 	@Override
 	public void newInterval() {
-		_rowInterval = (getXCoordinate(_upperX) - _xBound) / 512;
-		_columnInterval = (getYCoordinate(_upperY) - _yBound) / 512;
+		_rowInterval = Math.round(((getXCoordinate(_upperX) - _xBound) / 2048) * 100000000000000.0) / 100000000000000.0;
+		_columnInterval = Math.round(((getYCoordinate(_upperY) - _yBound) / 2048) * 100000000000000.0) / 100000000000000.0;
 	}
 	// stores previous intervals and bounds
 	@Override
@@ -144,22 +144,22 @@ public class BurningShip implements Fractal {
 		_prevColumnInterval = _columnInterval;
 		_prevXBound = _xBound;
 		_prevYBound = _yBound;
-		_xBound = getXCoordinate(_lowerX);
-		_yBound = getYCoordinate(_lowerY);
+		_xBound = Math.round(getXCoordinate(_lowerX) * 100000000000000.0) / 100000000000000.0;
+		_yBound = Math.round(getYCoordinate(_lowerY) * 100000000000000.0) / 100000000000000.0;
 	}
 	// resets the fractal back to the default position
 	@Override
 	public void reset() {
 		_lowerX = 0;
 		_lowerY = 0;
-		_upperX = 512;
-		_upperY = 512;
-		_rowInterval = 0.0001953125;
-		_columnInterval = .000205078125;
+		_upperX = 2048;
+		_upperY = 2048;
+		_rowInterval = 0.000048828125;
+		_columnInterval = 0.00005126953125;
 		_xBound = -1.8;
 		_yBound = -.08;
-		_prevRowInterval = 0.0001953125;
-		_prevColumnInterval = .000205078125;
+		_prevRowInterval = 0.000048828125;
+		_prevColumnInterval = 0.00005126953125;
 		_prevXBound = -1.8;
 		_prevYBound = -.08;
 	}

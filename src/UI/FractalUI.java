@@ -29,7 +29,7 @@ public class FractalUI {
 	private IndexColorModel _colorModel;
 	
 	//Dimension of fractal
-	private Dimension _dim = new Dimension(512,512);
+	private Dimension _dim = new Dimension(2048, 2048);
 	
 	//Escape Distance in use
 	private int _escapeDist;
@@ -56,13 +56,13 @@ public class FractalUI {
 		_colorModel = ColorModelFactory.createGrayColorModel(300);
 		_gridFirstX = 0;
 		_gridFirstY = 0;
-		_gridLastX = 512;
-		_gridLastY = 512;
+		_gridLastX = 2048;
+		_gridLastY = 2048;
 		
 		//Creating Window
 		_window = new JFrame();
 		_window.setVisible(true);
-		_window.setSize(512, 512);
+		_window.setSize(2048, 2048);
 		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//File Option
@@ -251,8 +251,8 @@ public class FractalUI {
 	public void reset() {
 		_gridFirstX = 0;
 		_gridFirstY = 0;
-		_gridLastX = 512;
-		_gridLastY = 512;
+		_gridLastX = 2048;
+		_gridLastY = 2048;
 		_frac.reset();
 		printRange();
 	}
