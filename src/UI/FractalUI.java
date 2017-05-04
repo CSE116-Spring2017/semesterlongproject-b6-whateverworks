@@ -7,12 +7,15 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.SwingWorker;
 
 import edu.buffalo.cse116.BurningShip;
+import edu.buffalo.cse116.FracSwingWorker;
 import edu.buffalo.cse116.Fractal;
 import edu.buffalo.cse116.Julia;
 import edu.buffalo.cse116.Mandelbrot;
 import edu.buffalo.cse116.Multibrot;
+import edu.buffalo.cse116.WorkerResult;
 import edu.buffalo.fractal.FractalPanel;
 
 //responsible for updating and displaying fractal
@@ -33,6 +36,8 @@ public class FractalUI {
 	
 	//Escape Distance in use
 	private int _escapeDist;
+	
+	private int _threads;
 	
 	//Max Escape Time in use
 	private int _maxEscapeTime;
@@ -58,6 +63,7 @@ public class FractalUI {
 		_gridFirstY = 0;
 		_gridLastX = 2048;
 		_gridLastY = 2048;
+		_threads = 1;
 		
 		//Creating Window
 		_window = new JFrame();
@@ -148,7 +154,12 @@ public class FractalUI {
         reset.addActionListener(new resetListener(this));
         resetMenu.add(reset);
         
+        //Thread Option
+        JMenu threadMenu = new JMenu("Threads");
         
+        JMenuItem changeThread = new JMenuItem("Change");
+        changeThread.addActionListener(new threadListener(this));
+        threadMenu.add(changeThread);
 	
 		//FractalPanel
 		_fracPanel = new FractalPanel();
@@ -208,9 +219,19 @@ public class FractalUI {
 	//Updates fractal and image
 	public void updateFractal() {
 		_fracPanel.setIndexColorModel(_colorModel);
+		createThreads(_threads);
 		_fracPanel.updateImage(_frac.calcFrac());
 		_window.pack();
 	}
+
+	private void createThreads(int threads) {
+		SwingWorker<WorkerResult, Void>[] sws = new FracSwingWorker[127];
+		for(int i = 0; i < threads; i++){
+			FracSwingWorker fsw = new FracSwingWorker(_frac);
+			fsw
+		}
+	}
+
 
 	//sets max escape distance
 	public void setMaxEscapeTime(int escTime) {
@@ -255,6 +276,11 @@ public class FractalUI {
 		_gridLastY = 2048;
 		_frac.reset();
 		printRange();
+	}
+
+
+	public void setThreads(int threads) {
+		_threads = threads;
 	}
 
 }

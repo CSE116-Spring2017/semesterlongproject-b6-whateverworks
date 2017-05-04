@@ -58,7 +58,7 @@ public class Multibrot implements Fractal {
 	@Override
 	public int[][] calcFrac(){	
 		for (int row = 0; row < 2048; row++){
-			for (int column = 0; column < 512; column++){
+			for (int column = 0; column < 2048; column++){
 				Coord c = new Coord((_xBound + (row * _rowInterval)), (_yBound + (column * _columnInterval)));
 				_grid[row][column] = escapeTime(c);
 			}
