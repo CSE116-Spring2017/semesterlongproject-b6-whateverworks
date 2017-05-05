@@ -34,6 +34,10 @@ public class BurningShip implements Fractal {
 	
 	private double _prevYBound;
 	
+	private int _startingRow;
+	
+	private int _endingRow;
+	
 	// Populates array using escapeTime method
 	public BurningShip(){
 		_grid = new int[2048][2048];
@@ -51,18 +55,19 @@ public class BurningShip implements Fractal {
 		_prevColumnInterval = 0.00005126953125;
 		_prevXBound = -1.8;
 		_prevYBound = -.08;
+		_startingRow = 0;
+		_endingRow = 2048;
 	}
 	
 	//Calculates fractal and returns array
 	@Override
 	public int[][] calcFrac(){
-		
-		for (int row = 0; row < 2048; row++){
+		for (int row = 0; row < _endingRow - _startingRow; row++){
 			for (int column = 0; column < 2048; column++){
-				Coord c = new Coord((_xBound + (row * _rowInterval)), (_yBound + (column * _columnInterval)));
-				// row side is domain/512 column side is range/512
+				Coord c = new Coord((_xBound + (_startingRow * _rowInterval)), (_yBound + (column * _columnInterval)));
 				_grid[row][column] = escapeTime(c);
-			}		
+			}
+			_startingRow = _startingRow + 1;
 		}
 		return _grid;
 	}
@@ -163,6 +168,12 @@ public class BurningShip implements Fractal {
 		_prevXBound = -1.8;
 		_prevYBound = -.08;
 	}
-	
+
+	@Override
+	public void setStartAndEnd(int startingRow, int endingRow) {
+		_endingRow = endingRow;
+		_startingRow = startingRow;
+		_grid = new int[_endingRow - _startingRow][2048];
+	}
 
 }

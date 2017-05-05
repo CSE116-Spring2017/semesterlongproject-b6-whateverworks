@@ -35,6 +35,9 @@ public class Mandelbrot implements Fractal{
 	
 	private double _prevYBound;
 	
+	private int _startingRow;
+	
+	private int _endingRow;
 	
 	// Populates array using escapeTime method
 	public Mandelbrot(){
@@ -53,16 +56,19 @@ public class Mandelbrot implements Fractal{
 		_prevColumnInterval = 0.00126953125;
 		_prevXBound = -2.15;
 		_prevYBound = -1.3;
+		_startingRow = 0;
+		_endingRow = 2048;
 	}
 	
 	//Calculates fractal and returns array
 	@Override
-	public int[][] calcFrac(){	
-		for (int row = 0; row < 2048; row++){
+	public int[][] calcFrac(){
+		for (int row = 0; row < _endingRow - _startingRow; row++){
 			for (int column = 0; column < 2048; column++){
-				Coord c = new Coord((_xBound + (row * _rowInterval)), (_yBound + (column * _columnInterval)));
+				Coord c = new Coord((_xBound + (_startingRow * _rowInterval)), (_yBound + (column * _columnInterval)));
 				_grid[row][column] = escapeTime(c);
 			}
+			_startingRow = _startingRow + 1;
 		}
 		return _grid;
 	}
@@ -162,6 +168,13 @@ public class Mandelbrot implements Fractal{
 		_prevColumnInterval = 0.00126953125;
 		_prevXBound = -2.15;
 		_prevYBound = -1.3;
+	}
+
+	@Override
+	public void setStartAndEnd(int startingRow, int endingRow) {
+		_endingRow = endingRow;
+		_startingRow = startingRow;
+		_grid = new int[_endingRow - _startingRow][2048];
 	}
 
 }

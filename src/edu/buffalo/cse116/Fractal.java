@@ -23,4 +23,6 @@ public interface Fractal {
 	void beginningBounds();
 
 	void reset();
+
+	void setStartAndEnd(int startingRow, int endingRow);
 }

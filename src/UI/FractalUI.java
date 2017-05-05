@@ -10,6 +10,7 @@ import javax.swing.JMenuItem;
 import javax.swing.SwingWorker;
 
 import edu.buffalo.cse116.BurningShip;
+import edu.buffalo.cse116.ComputePool;
 import edu.buffalo.cse116.FracSwingWorker;
 import edu.buffalo.cse116.Fractal;
 import edu.buffalo.cse116.Julia;
@@ -52,6 +53,8 @@ public class FractalUI {
 	
 	private JFrame _window;
 	
+	private ComputePool _cp;
+	
 	public FractalUI(){
 		
 		// sets default fractal, escape distance, and color model
@@ -64,6 +67,7 @@ public class FractalUI {
 		_gridLastX = 2048;
 		_gridLastY = 2048;
 		_threads = 1;
+		_cp = new ComputePool();
 		
 		//Creating Window
 		_window = new JFrame();
@@ -164,6 +168,7 @@ public class FractalUI {
 		//FractalPanel
 		_fracPanel = new FractalPanel();
 		_fracPanel.setSize(_dim);
+		_cp.changePanel(_fracPanel);
 		
 		// adds all options to menu
 		JMenuBar menuBar = new JMenuBar();
@@ -173,6 +178,7 @@ public class FractalUI {
 		menuBar.add(escapeDistMenu);
 		menuBar.add(maxEscapeTimeMenu);
 		menuBar.add(resetMenu);
+		menuBar.add(threadMenu);
 		
 		// adds all parts to window
 		_window.setJMenuBar(menuBar);
@@ -219,17 +225,29 @@ public class FractalUI {
 	//Updates fractal and image
 	public void updateFractal() {
 		_fracPanel.setIndexColorModel(_colorModel);
-		createThreads(_threads);
-		_fracPanel.updateImage(_frac.calcFrac());
+		_cp.generateFractal(2048, createThreads(_threads));
 		_window.pack();
 	}
 
-	private void createThreads(int threads) {
-		SwingWorker<WorkerResult, Void>[] sws = new FracSwingWorker[127];
+	private SwingWorker<WorkerResult, Void>[] createThreads(int threads) {
+		SwingWorker<WorkerResult, Void>[] sws = new FracSwingWorker[threads];
+		int endingRow = (2048 / threads);
+		int sectionSize = (2048 / threads);
+		int remainder = 2048 % threads;
+		int startingRow = 0;
 		for(int i = 0; i < threads; i++){
-			FracSwingWorker fsw = new FracSwingWorker(_frac);
-			fsw
+			if(i < threads - 1){
+				FracSwingWorker fsw = new FracSwingWorker(_frac, startingRow, endingRow);
+				startingRow = endingRow;
+				endingRow = endingRow + sectionSize;
+				sws[i] = fsw;
+			}
+			else{
+				FracSwingWorker fsw = new FracSwingWorker(_frac, startingRow, endingRow + remainder);
+				sws[i] = fsw;
+			}
 		}
+		return sws;
 	}
 
 
