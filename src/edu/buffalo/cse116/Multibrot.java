@@ -5,7 +5,6 @@ package edu.buffalo.cse116;
 public class Multibrot implements Fractal {
 
 	// Grid to hold escape times
-	private int[][] _grid;
 		
 	private int _escapeDist;
 		
@@ -34,14 +33,10 @@ public class Multibrot implements Fractal {
 	private double _prevXBound;
 		
 	private double _prevYBound;
-	
-	private int _startingRow;
-	
-	private int _endingRow;
+
 		
 	// Populates array using escapeTime method
 	public Multibrot(){
-		_grid = new int[2048][2048];
 		_escapeDist = 2;
 		_maxEscapeTime = 255;
 		_lowerX = 0;
@@ -56,21 +51,22 @@ public class Multibrot implements Fractal {
 		_prevColumnInterval = 0.00126953125;
 		_prevXBound = -1;
 		_prevYBound = -1.3;
-		_startingRow = 0;
-		_endingRow = 2048;
+
 	}
 	
 	//Calculates fractal and returns array
 	@Override
-	public int[][] calcFrac(){
-		for (int row = 0; row < _endingRow - _startingRow; row++){
+	public int[][] calcFrac(int startingRow, int endingRow){
+		int rows = endingRow - startingRow;
+		int[][] grid = new int[rows][2048];
+		for (int row = 0; row < rows; row++){
 			for (int column = 0; column < 2048; column++){
-				Coord c = new Coord((_xBound + (_startingRow * _rowInterval)), (_yBound + (column * _columnInterval)));
-				_grid[row][column] = escapeTime(c);
+				Coord c = new Coord((_xBound + (startingRow * _rowInterval)), (_yBound + (column * _columnInterval)));
+				grid[row][column] = escapeTime(c);
 			}
-			_startingRow = _startingRow + 1;
+			startingRow++;
 		}
-		return _grid;
+		return grid;
 	}
 	
 	//Calculates escape time
@@ -84,8 +80,8 @@ public class Multibrot implements Fractal {
 		int passes = 0;
 		while (dist <= _escapeDist && passes < _maxEscapeTime){
 			double previousXCalc = xCalc;
-			xCalc = Math.pow(xCalc, 3) - (3 * xCalc * Math.pow(yCalc, 2)) + currentX;
-			yCalc = (3 * Math.pow(previousXCalc, 2) * yCalc) - Math.pow(yCalc, 3) + currentY;
+			xCalc = (xCalc * xCalc * xCalc) - (3 * xCalc * (yCalc * yCalc)) + currentX;
+			yCalc = (3 * (previousXCalc * previousXCalc) * yCalc) - (yCalc * yCalc * yCalc) + currentY;
 			passes = passes + 1;
 			dist = Math.sqrt(Math.pow(xCalc - 0, 2) + Math.pow(yCalc - 0, 2));
 		}
@@ -154,12 +150,6 @@ public class Multibrot implements Fractal {
 			_prevYBound = -1.3;
 		}
 		
-		@Override
-		public void setStartAndEnd(int startingRow, int endingRow) {
-			_endingRow = endingRow;
-			_startingRow = startingRow;
-			_grid = new int[_endingRow - _startingRow][2048];
-		}
 
 
 

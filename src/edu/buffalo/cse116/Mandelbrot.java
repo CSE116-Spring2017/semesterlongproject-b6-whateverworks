@@ -5,7 +5,7 @@ package edu.buffalo.cse116;
 public class Mandelbrot implements Fractal{
 	
 	// Grid to hold escape times
-	private int[][] _grid;
+
 	
 	private int _escapeDist;
 	
@@ -35,13 +35,10 @@ public class Mandelbrot implements Fractal{
 	
 	private double _prevYBound;
 	
-	private int _startingRow;
-	
-	private int _endingRow;
 	
 	// Populates array using escapeTime method
 	public Mandelbrot(){
-		_grid = new int[2048][2048];
+	
 		_escapeDist = 2;
 		_maxEscapeTime = 255;
 		_lowerX = 0;
@@ -56,21 +53,21 @@ public class Mandelbrot implements Fractal{
 		_prevColumnInterval = 0.00126953125;
 		_prevXBound = -2.15;
 		_prevYBound = -1.3;
-		_startingRow = 0;
-		_endingRow = 2048;
 	}
 	
 	//Calculates fractal and returns array
 	@Override
-	public int[][] calcFrac(){
-		for (int row = 0; row < _endingRow - _startingRow; row++){
+	public int[][] calcFrac(int startingRow, int endingRow){
+		int rows = endingRow - startingRow;
+		int[][] grid = new int[rows][2048];
+		for (int row = 0; row < rows; row++){
 			for (int column = 0; column < 2048; column++){
-				Coord c = new Coord((_xBound + (_startingRow * _rowInterval)), (_yBound + (column * _columnInterval)));
-				_grid[row][column] = escapeTime(c);
+				Coord c = new Coord((_xBound + (startingRow * _rowInterval)), (_yBound + (column * _columnInterval)));
+				grid[row][column] = escapeTime(c);
 			}
-			_startingRow = _startingRow + 1;
+			startingRow++;
 		}
-		return _grid;
+		return grid;
 	}
 
 
@@ -168,13 +165,6 @@ public class Mandelbrot implements Fractal{
 		_prevColumnInterval = 0.00126953125;
 		_prevXBound = -2.15;
 		_prevYBound = -1.3;
-	}
-
-	@Override
-	public void setStartAndEnd(int startingRow, int endingRow) {
-		_endingRow = endingRow;
-		_startingRow = startingRow;
-		_grid = new int[_endingRow - _startingRow][2048];
 	}
 
 }

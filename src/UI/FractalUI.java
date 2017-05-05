@@ -225,8 +225,9 @@ public class FractalUI {
 	//Updates fractal and image
 	public void updateFractal() {
 		_fracPanel.setIndexColorModel(_colorModel);
+		_cp.clearPool();
 		_cp.generateFractal(2048, createThreads(_threads));
-		_window.pack();
+		//_window.pack();
 	}
 
 	private SwingWorker<WorkerResult, Void>[] createThreads(int threads) {

@@ -4,7 +4,7 @@ package edu.buffalo.cse116;
 
 public interface Fractal {
 	
-	int[][] calcFrac();
+	int[][] calcFrac(int startingRow, int endingRow);
 	
 	int escapeTime(Coord calc);
 	
@@ -24,5 +24,4 @@ public interface Fractal {
 
 	void reset();
 
-	void setStartAndEnd(int startingRow, int endingRow);
 }

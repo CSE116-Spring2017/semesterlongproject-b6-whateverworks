@@ -16,8 +16,7 @@ public class FracSwingWorker extends SwingWorker<WorkerResult, Void> {
 
 	@Override
 	protected WorkerResult doInBackground() throws Exception {
-		_frac.setStartAndEnd(_startingRow, _endingRow);
-		return new WorkerResult(_startingRow, _frac.calcFrac());
+		return new WorkerResult(_startingRow, _frac.calcFrac(_startingRow, _endingRow));
 	}
 
 }
