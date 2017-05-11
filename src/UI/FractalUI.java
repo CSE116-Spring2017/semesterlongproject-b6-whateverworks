@@ -230,6 +230,7 @@ public class FractalUI {
 		//_window.pack();
 	}
 
+	//creates threads and their beginning and ending row
 	private SwingWorker<WorkerResult, Void>[] createThreads(int threads) {
 		SwingWorker<WorkerResult, Void>[] sws = new FracSwingWorker[threads];
 		int endingRow = (2048 / threads);
@@ -297,7 +298,7 @@ public class FractalUI {
 		printRange();
 	}
 
-
+	//sets number of threads equal to users input
 	public void setThreads(int threads) {
 		_threads = threads;
 	}

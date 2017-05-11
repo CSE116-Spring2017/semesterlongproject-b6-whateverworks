@@ -1,0 +1,4 @@
+To update the number of SwingWorker instances used to calculate fractal, click "Threads" and then change. 
+A message will appear in the console and you can type a new integer and hit enter. 
+The fractal will update immediately.
+If an invalid number is entered an error is thrown
