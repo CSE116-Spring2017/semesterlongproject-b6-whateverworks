@@ -207,57 +207,96 @@ public class MainTest {
 	// Tests points whose distance never exceeds escape distance
 	
 	@Test
-	public void BurningShiptest() {
-		BurningShip distLessEscapeDistB = new BurningShip();
-		Coord c = new Coord (-1.7443359374999874, -0.017451171875000338);
-		assertEquals(255, distLessEscapeDistB.escapeTime(c));
+	public void BurningShipSizetest() {
+		BurningShip arrLength = new BurningShip();
+		BurningShip arrLength2 = new BurningShip();
+		BurningShip arrLength3 = new BurningShip();
+		BurningShip arrLength4 = new BurningShip();
+		FractalUI frc = new FractalUI();
+		frc.setThreads(4);
+		int[][] arr = arrLength.calcFrac(0, 512);
+		int[][] arr2 = arrLength.calcFrac(512, 1024);
+		int[][] arr3 = arrLength.calcFrac(1024, 1536);
+		int[][] arr4 = arrLength.calcFrac(1536, 2048);
+		assertEquals(512, arr.length);
+		assertEquals(512, arr2.length);
+		assertEquals(512, arr3.length);
+		assertEquals(512, arr4.length);
+		assertEquals(512, arr[0].length);
+		assertEquals(512, arr2[0].length);
+		assertEquals(512, arr3[0].length);
+		assertEquals(512, arr4[0].length);
 	}
 	
+	//Julia
 	@Test
-	public void Mandelbrottest() {
-		Mandelbrot distLessEscapeDistM = new Mandelbrot();
-		Coord c = new Coord (0.3207031250000001, -0.07109374999999386);
-		assertEquals(255, distLessEscapeDistM.escapeTime(c));
+	public void JuliaSizetest() {
+		Julia arrLength = new Julia();
+		Julia arrLength2 = new Julia();
+		Julia arrLength3 = new Julia();
+		Julia arrLength4 = new Julia();
+		FractalUI frc = new FractalUI();
+		frc.setThreads(4);
+		int[][] arr = arrLength.calcFrac(0, 512);
+		int[][] arr2 = arrLength2.calcFrac(512, 1024);
+		int[][] arr3 = arrLength3.calcFrac(1024, 1536);
+		int[][] arr4 = arrLength4.calcFrac(1536, 2048);
+		assertEquals(512, arr.length);
+		assertEquals(512, arr2.length);
+		assertEquals(512, arr3.length);
+		assertEquals(512, arr4.length);
+		assertEquals(512, arr[0].length);
+		assertEquals(512, arr2[0].length);
+		assertEquals(512, arr3[0].length);
+		assertEquals(512, arr4[0].length);
 	}
 	
+	//Mandelbrot
 	@Test
-	public void Juliatest() {
-		Julia distLessEscapeDistJ = new Julia();
-		Coord c = new Coord (1.0492187499999897, -0.234375);
-		assertEquals(255, distLessEscapeDistJ.escapeTime(c));
+	public void MandelbrotSizetest() {
+		Mandelbrot arrLength = new Mandelbrot();
+		Mandelbrot arrLength2 = new Mandelbrot();
+		Mandelbrot arrLength3 = new Mandelbrot();
+		Mandelbrot arrLength4 = new Mandelbrot();
+		FractalUI frc = new FractalUI();
+		frc.setThreads(4);
+		int[][] arr = arrLength.calcFrac(0, 512);
+		int[][] arr2 = arrLength2.calcFrac(512, 1024);
+		int[][] arr3 = arrLength3.calcFrac(1024, 1536);
+		int[][] arr4 = arrLength4.calcFrac(1536, 2048);
+		assertEquals(512, arr.length);
+		assertEquals(512, arr2.length);
+		assertEquals(512, arr3.length);
+		assertEquals(512, arr4.length);
+		assertEquals(512, arr[0].length);
+		assertEquals(512, arr2[0].length);
+		assertEquals(512, arr3[0].length);
+		assertEquals(512, arr4[0].length);
 	}
 	
+	// Multibrot
 	@Test
-	public void Multibrottest() {
-		Multibrot distLessEscapeDistMb = new Multibrot();
-		Coord c = new Coord (0.5859375, 0.24375000000000108);
-		assertEquals(255, distLessEscapeDistMb.escapeTime(c));
+	public void MultibrotSizetest() {
+		Multibrot arrLength = new Multibrot();
+		Multibrot arrLength2 = new Multibrot();
+		Multibrot arrLength3 = new Multibrot();
+		Multibrot arrLength4 = new Multibrot();
+		FractalUI frc = new FractalUI();
+		frc.setThreads(4);
+		int[][] arr = arrLength.calcFrac(0, 512);
+		int[][] arr2 = arrLength2.calcFrac(512, 1024);
+		int[][] arr3 = arrLength3.calcFrac(1024, 1536);
+		int[][] arr4 = arrLength4.calcFrac(1536, 2048);
+		assertEquals(512, arr.length);
+		assertEquals(512, arr2.length);
+		assertEquals(512, arr3.length);
+		assertEquals(512, arr4.length);
+		assertEquals(512, arr[0].length);
+		assertEquals(512, arr2[0].length);
+		assertEquals(512, arr3[0].length);
+		assertEquals(512, arr4[0].length);	
 	}
 	
-	
-	
-	// Tests points whose distance exceeds escape distance after a single pass
-	
-	@Test
-	public void Mandelbrottest2() {
-		Mandelbrot distLessEscapeDistM = new Mandelbrot();
-		Coord p = new Coord (0.5946289062500001, 1.2949218750000122);
-		assertEquals(1, distLessEscapeDistM.escapeTime(p));
-	}
-	
-	@Test
-	public void Juliatest2() {
-		Julia distLessEscapeDistJ = new Julia();
-		Coord p = new Coord (1.6933593749999853, 0.9765625);
-		assertEquals(1, distLessEscapeDistJ.escapeTime(p));
-	}
-	
-	@Test
-	public void Multibrottest2() {
-		Multibrot distLessEscapeDistMb = new Multibrot();
-		Coord p = new Coord (0.9921875, 1.05625);
-		assertEquals(1, distLessEscapeDistMb.escapeTime(p));
-	}
 	
 	// Tests that none of the pixels in burning ship have an escape time of 0 or 1
 	
